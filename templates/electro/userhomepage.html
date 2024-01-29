@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/userhome.css' %}">
+  <title>USER HOME PAGE</title>
+  <style>
+    body {
+      height: 100%;
+      background-color: #222120;
+      background-image:url('/static/images/user3.jpg');
+      background-size: 100%;
+    }
+  </style>
+  <script src="https://use.fontawesome.com/c9d2b81f44.js"></script>
+</head>
+
+<body>
+  <h1>"Welcome to ELECTRO —where electrifying experiences come to life! ⚡️"</h1>
+
+  <div class="nav-container">
+    <ul class="nav">
+      <li class="active">
+        <a href="#">
+          <script src="https://cdn.lordicon.com/lordicon.js"></script>
+          <lord-icon src="https://cdn.lordicon.com/kthelypq.json" trigger="hover" colors="primary:#ffffff"
+            style="width:130px;height:40px">
+          </lord-icon>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'calc' %}">
+          <span class="icon-user"></span>
+          <span class="text">Bill calculator</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'complaint' %}">
+          <span class="icon-play"></span>
+          <span class="text">Register Complaint</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'aboutus' %}">
+          <span class="icon-cogs"></span>
+          <span class="text">About us</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <h2>Welcome, {{ user.first_name }}!</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Usename</th>
+          <th>First_Name</th>
+          <th>units</th>
+          <th>Amount</th>
+          <th>Due_Date</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for unit in user_units %}
+            <tr>
+                <td>{{ user_info.username }}</td>
+                <td>{{ user_info.first_name }}</td>
+                <td>{{ unit.units }}</td>
+                <td>{{unit.amount}}</td> <!-- Replace with actual data -->
+                <td>{{unit.due_date}}</td> <!-- Replace with actual data -->
+            </tr>
+            {% endfor %}
+            <tr>
+              <th colspan="4">Pay Your Bill</th>
+          <td> <button class="button-30" role="button" onclick="pay_Bill()"><img src="{% static 'images/user2.png' %}"alt="" height="30px" width="30px">Pay Bill</button>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <script>
+        function pay_Bill() {
+          console.log('pay_Bill function called');
+          var paybillUrl = "{% url 'paybill' %}";
+          window.location.href = paybillUrl;
+        }
+
+
+  </script>
+
+</body>
+
+</html>

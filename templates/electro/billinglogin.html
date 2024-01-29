@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing Information</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: rgba(197, 186, 186, 0.93);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      border-radius: 4px;
+    }
+
+    input[type="submit"] {
+      background-color: #9fa3bd;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #a9adc7;
+    }
+  </style>
+</head>
+<body>
+  <form method="POST">
+    {% csrf_token %}
+    <label for="{{ form.phone_number.id_for_label }}">Enter registered Phone Number:</label>
+    {{ form.phone_number }}
+    <input type="submit" value="Log in">
+  </form>
+</body>
+</html>
+
+

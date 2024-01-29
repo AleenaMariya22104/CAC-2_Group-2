@@ -1,0 +1,11 @@
+<!-- add_units.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Units added by {{ staff.username }}</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    {{ add_units_form.as_p }}
+    <button type="submit">Add Units</button>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!-- generate_invoice.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Generate Invoice</h2>
+
+  <form method="post" action="{% url 'generate_invoice' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Generate Invoice</button>
+  </form>
+{% endblock %}

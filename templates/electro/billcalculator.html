@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Electricity Bill Calculator</title>
+  <link rel="stylesheet" href="{% static 'css/billcalculator.css' %}">
+  <style>
+    .body {
+      
+    }
+  </style>
+</head>
+
+<body class="body">
+
+
+
+  <section>
+    <div class='air air1'></div>
+    <div class='air air2'></div>
+    <div class='air air3'></div>
+    <div class='air air4'></div>
+  </section>
+
+  <div class="main-container">
+    <div class="input-fields">
+      <label for="customerId">user_name:</label>
+      <input type="text" id="customerId" name="customerId" value="{{ request.user.username }}" readonly>
+
+      <label for="phoneNumber">Phone Number:</label>
+       <input type="text" id="phoneNumber" name="phoneNumber" value="{{ user_phone_number }}" readonly>
+
+
+      <label for="unit">Enter previous unit</label>
+      <input type="number" id="prev_unit" name="previous_unit">
+
+      <label for="unit">Enter new unit</label>
+      <input type="number" id="unit" name="unit" value="{{ user_units }}" readonly>
+    </div>
+
+    <div class="output-fields">
+      <div class="main-container">
+        <label>Amount:</label>
+        <span id="amount">0.0</span>
+
+        <p id="thankYouMessage">Thank You Come Again</p>
+      </div>
+    </div>
+
+
+
+    <button class="button-30" role="button" id="calculateButton">Calculate</button>
+
+    <!-- 
+    <button id="calculateButton">Calculate</button>
+    <button id="Button">PayBill</button>
+    <button id="printButton">Print</button> -->
+
+
+  </div>
+  <script>
+    document.getElementById('calculateButton').addEventListener('click', function () {
+      var prevUnit = parseFloat(document.getElementById('prev_unit').value);
+      var newUnit = parseFloat(document.getElementById('unit').value);
+      var unitsConsumed = newUnit - prevUnit;
+      var finalBill = unitsConsumed *9;
+
+    // Display the result
+    document.getElementById('amount').innerText = finalBill.toFixed(2);
+  });
+
+    document.getElementById('printButton').addEventListener('click', function () {
+      // Assume printing functionality here
+      alert("Printing the bill...");
+    });
+  </script>
+
+
+</body>
+
+</html>

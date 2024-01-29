@@ -1,0 +1,111 @@
+/* style.css */
+
+/* Use a custom font for the whole page */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+      font-family: 'Roboto', sans-serif;
+      background: url('/static/images/user1.jpg') center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .main-container {
+      width: 50%; /* Adjust the width as needed */
+      padding: 20px;
+      border: 2px solid #333;
+      background: rgba(197, 186, 186, 0.93);
+      text-align: center; /* Center the content inside .main-container */
+    }
+
+    .input-fields,
+    .output-fields {
+      display: inline-block;
+      vertical-align: top;
+      width: 45%;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input {
+      display: block;
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #333;
+      margin-bottom: 20px;
+    }
+
+    .output-fields {
+      margin-left: 0%;
+    }
+
+    #amount {
+      display: inline-block;
+      font-size: 24px;
+      color: green;
+      justify-items: flex-start;
+    }
+
+    #thankYouMessage {
+      display: none;
+      font-size: 18px;
+      color: blue;
+    }
+
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s, transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+

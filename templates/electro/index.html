@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <img src="{% static '/images/bg5.jpg' %}" height="100%" width="100%">
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1; alt="Image" class="bg">
+    <div class="container">
+        <h2>WELCOME TO ELECTRO</h2>
+        <p>Efficient and reliable electricity services for all.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </div>
+</section>
+    <!-- </section>
+
+<section class="features"> -->
+<section class="features">
+    <div class="container">
+        <h2><b>OUR SERVICES</b></h2>
+        <div class="feature">
+            <h3>POWER DISTRIBUTION</h3>
+            <p>Reliable distribution of electricity to homes and businesses.</p>
+        </div>
+        <div class="feature">
+            <h3>CUSTOMER SUPPORT</h3>
+            <p>24/7 customer support for any electricity-related issues.</p>
+        </div>
+        <div class="feature">
+            <h3>GREEN ENERGY</h3>
+            <p>Commitment to sustainable and green energy practices.</p>
+        </div>
+    </div>
+</section>
+
+<div class="contain">
+    <div class="card">
+        <div class="containercircle">
+            <i class="fa-solid fa-users" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+        </div>
+        <h2>CUSTOMER BASE</h2>
+        <p>Our company has a customer base of 15 million people.</p>
+    </div>
+    <div class="card">
+        <div class="containercircle">
+            <i class="fas fa-lightbulb" style="color: #2586d0; padding-left: 27px;padding-top: 20px;"></i>
+        </div>
+        <h2>TOTAL CAPACITY</h2>
+        <p>We have a total capacity of 19.65 GW.</p>
+    </div>
+    <div class="card">
+        <div class="containercircle">
+            <i class="fas fa-solar-panel" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+        </div>
+        <h2>SOLAR ROOFTOP</h2>
+        <p>Our solar rooftop capacity is 2.89 GW.</p>
+    </div>
+    <div class="card">
+        <div class="containercircle">
+            <i class="fa-solid fa-users-gear" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+        </div>
+        <h2>EMPLOYEES</h2>
+        <p>We have a team of 62,000 employees.</p>
+    </div>
+    <div class="card">
+        <div class="containercircle">
+            <i class="fas fa-wind" style="color: #2586d0; padding-left: 24px;padding-top: 20px;"></i>
+        </div>
+        <h2>INSTALLED CAPACITY WIND</h2>
+        <p>Our installed capacity for wind energy is 11.17 GW.</p>
+    </div>
+    <div class="card">
+        <div class="containercircle">
+            <i class="fas fa-sun" style="color: #2586d0; padding-left: 22px;padding-top: 20px;"></i>
+        </div>
+        <h2>INSTALLED CAPACITY SOLAR</h2>
+        <p>Our installed capacity for solar energy is 10.41 GW.</p>
+    </div>
+</div>
+
+<div class="cores">
+    <div class="vision">
+        <h2>VISION</h2>
+        <ul>
+            <li>To become India’s best DISCOM by providing reliable, resilient and quality power at affordable rates
+                to all the consumers and promote economy and sustainability of the society..</li>
+            <li>To Create an organization that is profitable, viable, responsive, serving the needs of the customer
+                and employees.</li>
+        </ul>
+    </div>
+
+    <div class="mission">
+        <h2>MISSION</h2>
+        <ul>
+            <li>Provide 24X7 POWER TO ALL by enhancing the distribution network.</li>
+            <li>Promote Non-conventional/Renewable Energy and Energy Efficiency.</li>
+            <li>Promote innovation and adoption of latest technology with cyber security.</li>
+            <li>Maximize sustainable value to all stakeholders(customers,employees,suppliers and contractors)
+                through IT enabled solutions and smart technology.</li>
+            <li>Take care of every employee to bring their whole self to work.</li>
+        </ul>
+    </div>
+
+    <div class="values">
+        <h2>VALUES</h2>
+        <ul>
+            <li>Committed for electrical safety.</li>
+            <li>Consumer’s Satisfaction & Care.</li>
+            <li>Promoting ethics in the workplace creates a positive culture.</li>
+            <li>Acting with integrity.</li>
+            <li>Fairness in all matters.</li>
+            <li>Respect the dignity of persons and peoples.</li>
+        </ul>
+    </div>
+</div>
+
+{% endblock content %}
+

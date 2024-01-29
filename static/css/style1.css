@@ -1,0 +1,201 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+header {
+    background-color: #100f0f;
+    padding: 20px 0;
+    color: #fff;
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.features {
+    background-color: #F5F5F5FF;
+    padding: 50px 0;
+    color: #333; /* Set an appropriate text color */
+    position: relative; /* Add this line */
+    z-index: 1; /* Add this line */
+}
+
+
+.container h1 {
+    font-family: 'Times New Roman', serif;
+    font-size: 51px;
+    color: #fbfbfb;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    letter-spacing: -2px;
+    font-weight: bold;
+}
+
+.hero h2 {
+    color: #000000;
+    margin-bottom:20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 50px 0;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('bg5.jpg');
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+.container h2,
+.container p,
+.container .cta-button {
+    position: relative;
+    z-index: 1;
+}
+
+.features {
+    background-color: #f5f5f5;
+    padding: 50px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.feature {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+footer {
+    background-color: #100f0f;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #100f0f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: rgb(242, 141, 46);
+}
+
+.contain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #100f0f;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #666;
+}
+
+.cores {
+    background-color: #2b94c9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cores h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, #000000, #000000);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cores ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.cores li {
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+

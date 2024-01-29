@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
+</head>
+<body>
+
+<div class="invoice-container">
+    <div class="header">
+        <p><b>ELECTRO</b></p>
+        <p>Christ Deemed to be University</p>
+        <p>Lavasa,412112</p>
+        <p>Phone: 1800-123-2009</p>
+    </div>
+
+    <div class="invoice-title">INVOICE</div>
+
+    <div class="invoice-info">
+        <span>INVOICE: </span><br/>
+        DATE:
+    </div>
+
+    <div class="bill-to">
+        <p>BILL TO:{{ selected_user.phone_number }}</p>
+        <p>Recipient Name:{{ selected_user.first_name }}</p>
+        <p>City: Lavasa </p>
+        <p>Pin code: 412112</p>
+        <p>Email: {{ selected_user.email }} </p>
+    </div>
+
+    <div class="invoice-items">
+        <table>
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>AMOUNT</th>
+            </tr>
+
+            <tr>
+                <td>Billing Unit</td>
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>Cost per unit</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>Discount</td>
+                <td>Nill</td>
+            </tr>
+
+
+        </table>
+    </div>
+
+    <div class="total">
+        Total: {{ total_amount }}
+    </div>
+
+    <div class="thank-you">
+        Thank you choosing our services!
+    </div>
+
+</div>
+
+</body>
+</html>
+
