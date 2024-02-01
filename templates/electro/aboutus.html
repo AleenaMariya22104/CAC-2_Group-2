@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +16,7 @@
     
         }
         .bg{
-        background-image: url(https://images.pexels.com/photos/1495580/pexels-photo-1495580.jpeg?cs=srgb&dl=pexels-eric-anada-1495580.jpg&fm=jpg);
+        background-image: url('{% static "/images/about.jpg" %}');
         background-repeat: no-repeat;
         background-size: cover; 
 
@@ -47,7 +48,11 @@
     </style>
 </head>
 
-<body class="bg">
+<body class="bg" 
+style="
+padding-top: 170px;
+padding-right: 50px;
+">
     <div class="container">
         <marquee><h1>Shocking the Norms, Energizing Tomorrow: About Electro</h1></marquee>
         
