@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bill Payment Receipt</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/billdetails.css' %}">
+</head>
+<body>
+  <div class="container">
+    <h1><b>ONLINE BILL PAYMENT SUMMARY</b></h1>
+    <div class="outstanding">
+      <p>Your Outstanding due amount is {{amount}}</p>
+
+    </div>
+    <div class="latest">
+      <h2>LATEST BILL SUMMARY</h2>
+      <table>
+        <tr>
+          <td>Registered PhoneNumber</td>
+          <td>{{phone_number}}</td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{ user_name }}</td>
+        </tr>
+        <tr>
+          <td>Due Date</td>
+          <td>{{due_date}}</td>
+        </tr>
+        <tr>
+          <td>Disconnection Date</td>
+          <td>{{disconnection_due_date}}</td>
+        </tr>
+        <tr>
+          <td>Surcharge Waiver</td>
+          <td>Null</td>
+        </tr>
+        <tr>
+          <td>Net Payable Amount</td>
+          <td>{{amount}}</td>
+        </tr>
+
+      </table>
+        <div class="footer">
+      <p>Thank you for choosing our services.</p>
+      <p>We hope to see you again soon.</p>
+      <p><strong>~ELECTRO~</strong></p>
+        </div>
+</body>
+</html>

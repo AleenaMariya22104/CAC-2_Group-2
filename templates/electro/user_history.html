@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/userhome.css' %}">
+  <title>Previous History</title>
+  <style>
+    body {
+      height: 100%;
+      background-color: #222120;
+      background-image:url('/static/images/user3.jpg');
+      background-size: 100%;
+    }
+  </style>
+  <script src="https://use.fontawesome.com/c9d2b81f44.js"></script>
+</head>
+
+<body>
+  <h1>"Welcome to ELECTRO —where electrifying experiences come to life! ⚡️"</h1>
+  <div class="container">
+    <h2>Your,Previous Records</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Usename</th>
+          <th>First_Name</th>
+          <th>units</th>
+          <th>Amount</th>
+          <th>Due_Date</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% if user_history %}
+                {% for entry in user_history %}
+
+
+            <tr>
+                <td>{{ user.username }}</td>
+                <td>{{ user.first_name }}</td>
+                <td>{{ entry.units_added }} </td>
+                <td>{{entry.amount}}</td> <!-- Replace with actual data -->
+                <td>{{ entry.date_added }}</td> <!-- Replace with actual data -->
+            </tr>
+                {% endfor %}
+            {% else %}
+                <p>No history available.</p>
+            {% endif %}
+            <tr>
+             </tr>
+      </tbody>
+    </table>
+  </div>
+
+

@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from decimal import Decimal
+from django.utils import timezone
 
 
 
@@ -13,7 +15,7 @@ class CustomUser(AbstractUser):
 
     firstname=models.CharField(max_length=255)
     lastname=models.CharField(max_length=255)
-    emailid=models.CharField(max_length=255)
+    emailid = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=15, unique=True,null=True,blank=True)
     groups = models.ManyToManyField(
         'auth.Group',
@@ -54,3 +56,10 @@ class Unit(models.Model):
     objects = models.Manager()
 
 
+
+class UnitHistory(models.Model):
+    amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)  # ForeignKey linking to the User model
+    units_added = models.IntegerField()
+    date_added = models.DateField()

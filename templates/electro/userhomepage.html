@@ -37,6 +37,12 @@
           <span class="text">Bill calculator</span>
         </a>
       </li>
+        <li>
+            <a href="{% url 'user_history' %}">
+          <span class="icon-user"></span>
+          <span class="text">Previous history</span>
+        </a>
+        </li>
       <li>
         <a href="{% url 'complaint' %}">
           <span class="icon-play"></span>
@@ -44,9 +50,9 @@
         </a>
       </li>
       <li>
-        <a href="{% url 'aboutus' %}">
+          <a href="{% url 'user_dashboard' %}">
           <span class="icon-cogs"></span>
-          <span class="text">About us</span>
+          <span class="text">USER DASHBOARD</span>
         </a>
       </li>
     </ul>

@@ -1,18 +1,26 @@
 from datetime import timedelta
+from django.http import HttpResponse
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
+from django.views import View
 
-from .models import CustomUser, Invoice, Unit
+from .models import CustomUser, Invoice, Unit, UnitHistory
 from .forms import SignupForm, InvoiceGenerationForm, FilterCustomersForm, AddUnitsForm, PhoneLoginForm
 from django.contrib import messages
+from django.template.loader import render_to_string
+from xhtml2pdf import pisa
+from chartjs.views.lines import BaseLineChartView
+from django.utils import timezone
 from django.db import transaction
 from django.contrib.auth.decorators import login_required
 
 
+def my_admin(request):
+    return render(request,"electro/admin.html")
 def home(request):
     return render(request, "electro/index.html")
 
@@ -56,7 +64,7 @@ def user(request):
 
             if user.is_superuser:
                 print("reached staff")
-                return redirect('/admin/')
+                return redirect('myadmin')
             elif user.is_staff or user_type == 'staff':
                 print("Staff")
                 return redirect('staff')
@@ -82,10 +90,11 @@ def user_homepage(request):
         'first_name': request.user.first_name,
     }
     print(user_info)
-    for unit in user_units:
-        print("this")
-        unit.amount = unit.units* 9 # Replace YOUR_PRICE_PER_UNIT with your actual price per unit
-        unit.save()
+
+
+
+
+
 
     return render(request, "electro/userhomepage.html", {'user_info': user_info, 'user_units': user_units})
 
@@ -136,8 +145,44 @@ def billinfo(request):
 
     return render(request, "electro/billdetails.html", context)
 
+def download_receipt(request):
+    # Retrieve data needed for the receipt
+    user = request.user
+    unit_instance = Unit.objects.filter(user=user).latest('due_date')
+
+    # Get additional user information
+    user_name = f"{user.first_name} {user.last_name}"
+    phone_number = user.phone_number
+    due_date = unit_instance.due_date
+    amount = unit_instance.amount
+    disconnection_due_date = due_date + timedelta(days=7)
+
+    context = {
+        'user_name': user_name,
+        'phone_number': phone_number,
+        'due_date': due_date,
+        'disconnection_due_date': disconnection_due_date,
+        'amount': amount
+    }
+
+    # Render the receipt as HTML
+    receipt_content = render_to_string("electro/download_invoice.html", context)
+
+    # Create a response with the receipt content and appropriate headers
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="receipt.pdf"'
+
+    # Create a PDF from the HTML content using xhtml2pdf
+    pisa_status = pisa.CreatePDF(receipt_content, dest=response)
+
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + receipt_content + '</pre>')
+    return response
+
+
+
 def add_units(request):
-    staff=request.user
+    staff = request.user
 
     if request.method == 'POST':
         add_units_form = AddUnitsForm(request.POST)
@@ -145,42 +190,33 @@ def add_units(request):
         if add_units_form.is_valid():
             units = add_units_form.cleaned_data['units']
             due_date = add_units_form.cleaned_data['due_date']
-            user=add_units_form.cleaned_data['user']
+            user = add_units_form.cleaned_data['user']
+            existing_unit = Unit.objects.filter(user=user).first()
+            if existing_unit:
+                amount=(units-existing_unit.units)*9
+                # Move existing units to history
+                UnitHistory.objects.create(
+                    user=existing_unit.user,
+                    units_added=existing_unit.units,
+                    amount=existing_unit.amount,
+                    date_added=existing_unit.due_date
+                )
+                existing_unit.units = units
+                existing_unit.amount = amount
+                existing_unit.due_date = due_date
+                existing_unit.save()
+            else:
+                # Create a new unit record
+                Unit.objects.create(user=user, units=units, due_date=due_date,amount=units*9)
 
-            # unit_instance = add_units_form.save(commit=False)
-            # unit_instance.staff = staff
-            # unit_instance.customer = customer
-            # unit_instance.save()
-            # due_date = add_units_form.cleaned_data['due_date']
-            unit_instance, created = Unit.objects.get_or_create(
-                user=user,
-                staff=staff,
-                due_date=due_date,
-                defaults={'units': units}
-            )
-            if not created:
-                # Update existing unit
-                unit_instance.units += units
-                unit_instance.save()
-            #
-            #
-            # # Retrieve the existing unit instance for the specified user and due_date
-            # unit_instance = Unit.objects.filter(staff=staff, customer=customer, due_date=due_date).first()
-            #
-            # if unit_instance:
-            #     # Update existing unit
-            #     unit_instance.units += units
-            #     unit_instance.save()
-            # else:
-            #     # Create a new unit instance if none exists for the specified date
-            #     Unit.objects.create(staff=staff, customer=customer, units=units, due_date=due_date)
+
+            # Get the existing unit record for the user and due date
 
             return HttpResponseRedirect(reverse('staff'))
     else:
-        # filter_form = FilterCustomersForm()
         add_units_form = AddUnitsForm()
 
-    return render(request, 'electro/add_units.html', {'staff': staff, 'add_units_form': add_units_form})
+    return render(request, 'electro/add_units.html', {'add_units_form': add_units_form})
 
 def billcalculator(request):
     user = request.user
@@ -198,48 +234,97 @@ def paybill(request):
     return render(request,"electro/paybill.html")
 
 
-def generate_invoice(request):
-    if request.method == 'POST':
-        form = InvoiceGenerationForm(request.POST)
-        if form.is_valid():
-            selected_user = form.cleaned_data['user']
-            staff_user = request.user
-            units = Unit.objects.filter(user=selected_user)
-
-            # Retrieve pending units for the selected user
-            #pending_units = Unit.objects.filter(user=selected_user, staff=staff_user,status='pending', invoiced=False)
-
-            # Create a new invoice for the selected user
-            invoice = Invoice.objects.create(customer=selected_user, status='pending')
-
-            # Assign pending units to the invoice
-            for unit in units:
-                unit.invoice = invoice
-                unit.invoiced = True
-                unit.save()
-
-            # Update the total amount in the invoice
-            total_amount = sum(unit.amount for unit in units)
-            invoice.total_amount = total_amount
-            invoice.save()
-            context = {
-                'units': units,
-                'total_amount': total_amount,
-                # ... other context data ...
-            }
-
-            return render(request, 'electro/invoice.html',
-                          {'invoice': invoice, 'selected_user': selected_user, 'total_amount': total_amount,'context':context})  # Redirect to the list of invoices
-    else:
-        form = InvoiceGenerationForm()
-
-    return render(request, 'electro/generate_invoice.html', {'form': form})
 
 def contactus(request):
     return render(request,"electro/contactus.html")
 def invoice_list(request):
-    return render(request,"electro/invoice.html")
+    user = request.user
+    user_name = f"{user.first_name} {user.last_name}"
+    phone_number = user.phone_number
+    email=user.email
+
+    units= Unit.objects.get(user=user)
+    invoice = Invoice.objects.create(customer=user, status='pending')
+    units_to_update = Unit.objects.filter(user=user, status='pending', invoiced=False)
+    units_to_update.update(status='paid', invoice=invoice, invoiced=True)
+    invoice = Invoice.objects.create(customer=user, status='paid')
+    amount = units.amount
+    unit=units.units
+    context = {
+        'user_name': user_name,
+        'phone_number': phone_number,
+        'email': email,
+        'amount':amount,
+        'unit':unit
+    }
+
+    return render(request,"electro/invoice.html",context)
+def download_invoice(request):
+    user = request.user
+    user_name = f"{user.first_name} {user.last_name}"
+    phone_number = user.phone_number
+    email = user.email
+
+    units = Unit.objects.get(user=user)
+    invoice = Invoice.objects.create(customer=user, status='pending')
+    units_to_update = Unit.objects.filter(user=user, status='pending', invoiced=False)
+    units_to_update.update(status='paid', invoice=invoice, invoiced=True)
+    invoice = Invoice.objects.create(customer=user, status='paid')
+    amount = units.amount
+    unit = units.units
+    context = {
+        'user_name': user_name,
+        'phone_number': phone_number,
+        'email': email,
+        'amount': amount,
+        'unit': unit
+    }
+    invoice_content = render_to_string("electro/download_invoice.html", context)
+
+    # Create a response with the receipt content and appropriate headers
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="invoice.pdf"'
+
+    # Create a PDF from the HTML content using xhtml2pdf
+    pisa_status = pisa.CreatePDF(invoice_content, dest=response)
+
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + invoice_content + '</pre>')
+    return response
+
+
 def complaint(request):
     return render(request,"electro/complain.html")
+
+
+def user_history(request):
+    # Retrieve the logged-in user's history
+    user_history= UnitHistory.objects.filter(user=request.user)
+
+    return render(request, 'electro/user_history.html', {'user_history': user_history})
+
+
+class UserDashboardView(View):
+    template_name = 'electro/user_dashboard.html'
+
+    def get(self, request, *args, **kwargs):
+        # Retrieve data from the database
+        units_data = UnitHistory.objects.filter(user=request.user)
+
+        # Extract labels, units, and amounts from the queryset
+        labels = [data.date_added.strftime('%Y-%m-%d') for data in units_data]
+        units = [float(data.units_added) for data in units_data]
+        amounts = [float(data.amount) for data in units_data]
+
+        # Pass data to the template
+        context = {
+            'labels': labels,
+            'units': units,
+            'amounts': amounts,
+        }
+        return render(request, self.template_name, context)
+def manageuser(request):
+    regular_users = CustomUser.objects.filter(is_superuser=False)
+    return render(request,"electro/manageuser.html",{'regular_users': regular_users})
 
 

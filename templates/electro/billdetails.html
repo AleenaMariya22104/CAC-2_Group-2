@@ -9,7 +9,7 @@
     <style>
             /* CSS */
             .button-19 {
-              appearance: button;
+              {#appearance: button;#}
               background-color: #1899D6;
               border: solid transparent;
               border-radius: 16px;
@@ -54,15 +54,11 @@
               z-index: -1;
             }
 
-            .button-19:main,
             .button-19:focus {
               user-select: auto;
             }
 
-            .button-19:hover:not(:disabled) {
-              filter: brightness(1.1);
-              -webkit-filter: brightness(1.1);
-            }
+
 
             .button-19:disabled {
               cursor: auto;
@@ -111,9 +107,10 @@
 
       </table>
         <!-- HTML !-->
-<button class="button-19" role="button" aligh="center" style="
-            margin-left: 530px;
-        ">DOwnload</button>
+<button id="downloadButton" class="button-19" role="button" align="center" style="
+            margin-left: 530px">
+    <a href="{% url 'download_receipt' %}">Download</a>
+</button>
 
 
     <div class="footer">
@@ -121,6 +118,20 @@
       <p>We hope to see you again soon.</p>
       <p><strong>~ELECTRO~</strong></p>
     </div>
+    </div>
   </div>
+<script>
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        // Hide the download button after it's clicked
+        this.style.display = 'none';
+    });
+</script>
+
+
+
+
+
+
+
 </body>
 </html>

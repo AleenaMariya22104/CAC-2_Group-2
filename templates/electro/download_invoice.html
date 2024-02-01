@@ -19,6 +19,10 @@
 
     <div class="invoice-title">INVOICE</div>
 
+    <div class="invoice-info">
+        <span>INVOICE: </span><br/>
+        DATE:
+    </div>
 
     <div class="bill-to">
         <p>BILL TO:{{ phone_number }}</p>
@@ -30,7 +34,10 @@
 
     <div class="invoice-items">
         <table>
-
+            <tr>
+                <th>DESCRIPTION</th>
+                <th>AMOUNT</th>
+            </tr>
 
 
             <tr>
@@ -58,10 +65,6 @@
 
     <div class="thank-you">
         Thank you choosing our services!
-    </div>
-    <button id="downloadbutton" style="background-color: #04AA6D; margin-top: 10px; margin-left: 335px; color: white" > <a href="{% url 'download_invoice' %}">Download</a> </button>
-</div>
-
-</body>
+    </div></div>
+    </body>
 </html>
-

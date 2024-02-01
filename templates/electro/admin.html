@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Board Admin Panel - Home</title>
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+</head>
+<body>
+
+<header>
+    <h1>Electricity Board Admin Panel</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="{% url 'manage' %}">Manage Users</a></li>
+        <li><a href="statistics.html">Usage Statistics</a></li>
+        <li><a href="settings.html">Settings</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section>
+        
+        <div class="container">
+            <img src="{% static '/images/admin1jpg.jpg' %}" alt="Avatar" class="image">
+            <div class="overlay">
+              <div class="text"> <h2>Welcome to the Admin Panel</h2></div>
+             
+              <p>Where creativity sparks, efficiency hums, and innovation surges through every pixel. Welcome to the future of power administration, where the mundane is electrified, and the extraordinary is just another click away</p>
+            </div>
+          </div>
+    </section>
+</main>
+
+<footer>
+    <p class="backtext">&copy; Electro</p>
+</footer>
+</body>
+</html>

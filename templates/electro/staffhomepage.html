@@ -2,109 +2,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff Page</title>
-  <link rel="stylesheet" href="{% static 'css/staff.css' %}">
-  <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Page</title>
+    <link rel="stylesheet" href="{% static 'css/staff.css' %}">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
 
-    thead {
-        background-color: #333;
-        color: #fff;
-    }
+        thead {
+            background-color: #333;
+            color: #fff;
+        }
 
-    thead th,
-    tbody td {
-        padding: 10px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-    }
+        thead th,
+        tbody td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
 
-    tbody tr:hover {
-        background-color: #f5f5f5;
-    }
-</style>
+        tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
 
 </head>
 <body>
 <header>
-        <div id="navbar-btn" onclick="toggleNavbar()">☰</div>
-        <div id="user-list" style="display:none;"></div>
-        <div id="add-units" style="display:none;"></div>
-        <h1><b>STAFF PAGE</b></h1>
-    </header>
+    <div id="navbar-btn" onclick="toggleNavbar()">☰</div>
+    <div id="user-list" style="display:none;"></div>
+    <div id="add-units" style="display:none;"></div>
+    <h1><b>STAFF PAGE</b></h1>
+</header>
 
-    <div id="navbar">
-        <h2>Welcome, {{ user.first_name }}!</h2>
-        <a href="#viewUsers" onclick="toggleNavbar(); toggleUserList()">View Users</a>
-        <!-- Assuming you have the correct URL pattern for 'add_units' -->
-        <a href="{% url 'add_units' %}" onclick="toggleNavbar(); toggleAddUnit()">Add Billing Units</a>
-        <a href="#addDueCharges" onclick="toggleNavbar()">Add Due Charges</a>
-        <a href="{% url 'generate_invoice' %}" onclick="toggleNavbar()">Create Invoice</a>
-        <a href="#viewRequests" onclick="toggleNavbar()">View Requests</a>
-    </div>
+<div id="navbar">
+    <h2>Welcome, {{ user.first_name }}!</h2>
+    <a href="#viewUsers" onclick="toggleNavbar(); toggleUserList()">View Users</a>
+    <!-- Assuming you have the correct URL pattern for 'add_units' -->
+    <a href="{% url 'add_units' %}" onclick="toggleNavbar(); toggleAddUnit()">Add Billing Units</a>
+    <a href="#addDueCharges" onclick="toggleNavbar()">Add Due Charges</a>
+    <a href="#viewRequests" onclick="toggleNavbar()">View Requests</a>
+</div>
 
-    <h2>All Users:</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>User Phone Number</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for u in regular_users %}
-                <tr>
-                    <td>{{ u.username }}</td>
-                    <td>{{ u.first_name }}</td>
-                    <td>{{ u.last_name }}</td>
-                    <td>{{ u.phone_number }}</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+<h2>All Users:</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>User Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for u in regular_users %}
+        <tr>
+            <td>{{ u.username }}</td>
+            <td>{{ u.first_name }}</td>
+            <td>{{ u.last_name }}</td>
+            <td>{{ u.phone_number }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-    <footer>
-        <p>&copy; ELECTRO</p>
-    </footer>
+<footer>
+    <p>&copy; ELECTRO</p>
+</footer>
 
-    <script>
-        function toggleNavbar() {
-            var navbar = document.getElementById("navbar");
+<script>
+    function toggleNavbar() {
+        var navbar = document.getElementById("navbar");
 
-            if (navbar.style.width === "200px" || navbar.style.width === "") {
-                navbar.style.width = "0";
-            } else {
-                navbar.style.width = "200px";
-            }
+        if (navbar.style.width === "200px" || navbar.style.width === "") {
+            navbar.style.width = "0";
+        } else {
+            navbar.style.width = "200px";
         }
+    }
 
-        function toggleAddUnit() {
-            var addUnitsSection = document.getElementById("add-units");
+    function toggleAddUnit() {
+        var addUnitsSection = document.getElementById("add-units");
 
-            if (addUnitsSection.style.display === "block" || addUnitsSection.style.display === "") {
-                addUnitsSection.style.display = "none";
-            } else {
-                addUnitsSection.style.display = "block";
-            }
+        if (addUnitsSection.style.display === "block" || addUnitsSection.style.display === "") {
+            addUnitsSection.style.display = "none";
+        } else {
+            addUnitsSection.style.display = "block";
         }
+    }
 
-        function toggleUserList() {
-            var userList = document.getElementById("user-list");
+    function toggleUserList() {
+        var userList = document.getElementById("user-list");
 
-            if (userList.style.display === "block" || userList.style.display === "") {
-                userList.style.display = "none";
-            } else {
-                userList.style.display = "block";
-            }
+        if (userList.style.display === "block" || userList.style.display === "") {
+            userList.style.display = "none";
+        } else {
+            userList.style.display = "block";
         }
-    </script>
+    }
+</script>
 </body>
 </html>

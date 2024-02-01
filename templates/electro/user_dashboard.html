@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Previous History Visualization</h2>
+    <canvas id="lineChart"></canvas>
+</div>
+<script>
+var ctx = document.getElementById('lineChart').getContext('2d');
+
+var lineChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: {{ units|safe }}, // Use the safe filter to allow HTML rendering
+        datasets: [{
+            label: 'Amount',
+            borderColor: 'rgb(52,73,192)',
+            data: {{ amounts|safe }},
+            fill: false,
+        }]
+    },
+    options: {
+        scales: {
+            x: [{
+                type: 'linear',
+                position: 'bottom',
+                title: {
+                    display: true,
+                    text: 'Units',
+                },
+            }],
+            y: {
+                title: {
+                    display: true,
+                    text: 'Amount',
+                },
+            },
+        },
+        elements: {
+            line: {
+                tension: 0, // Disable bezier curves for a straight line
+            },
+        },
+        backgroundColor: 'rgb(255,255,255)',
+    },
+});
+
+
+
+</script>
+
+{% endblock %}
+
