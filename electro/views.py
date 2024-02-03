@@ -1,18 +1,29 @@
 from datetime import timedelta
 from django.http import HttpResponse
+from django.db.models.functions import TruncDate
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.db.models import Count
 from django.contrib.auth import authenticate, login
 from django.urls import reverse
 from django.views import View
+from datetime import date, timedelta
 
 from .models import CustomUser, Invoice, Unit, UnitHistory
-from .forms import SignupForm, InvoiceGenerationForm, FilterCustomersForm, AddUnitsForm, PhoneLoginForm
+from .forms import SignupForm, InvoiceGenerationForm, FilterCustomersForm, AddUnitsForm, PhoneLoginForm, CustomUserCreationForm
 from django.contrib import messages
 from django.template.loader import render_to_string
 from xhtml2pdf import pisa
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from io import BytesIO
+import base64
+
+
 from chartjs.views.lines import BaseLineChartView
 from django.utils import timezone
 from django.db import transaction
@@ -166,7 +177,7 @@ def download_receipt(request):
     }
 
     # Render the receipt as HTML
-    receipt_content = render_to_string("electro/download_invoice.html", context)
+    receipt_content = render_to_string("electro/billdetails.html", context)
 
     # Create a response with the receipt content and appropriate headers
     response = HttpResponse(content_type='application/pdf')
@@ -244,12 +255,12 @@ def invoice_list(request):
     email=user.email
 
     units= Unit.objects.get(user=user)
-    invoice = Invoice.objects.create(customer=user, status='pending')
     units_to_update = Unit.objects.filter(user=user, status='pending', invoiced=False)
-    units_to_update.update(status='paid', invoice=invoice, invoiced=True)
-    invoice = Invoice.objects.create(customer=user, status='paid')
+    units_to_update.update(status='paid',invoiced=True)
     amount = units.amount
-    unit=units.units
+    unit = units.units
+    invoice = Invoice.objects.create(customer=user, status='paid',total_amount=amount)
+
     context = {
         'user_name': user_name,
         'phone_number': phone_number,
@@ -326,5 +337,80 @@ class UserDashboardView(View):
 def manageuser(request):
     regular_users = CustomUser.objects.filter(is_superuser=False)
     return render(request,"electro/manageuser.html",{'regular_users': regular_users})
+def admin_dashboard(request):
+    num_users = CustomUser.objects.filter(user_type='user').count()
+    num_staff = CustomUser.objects.filter(user_type='staff').count()
+
+    paid_bills=Invoice.objects.filter(status='paid').count()
+    pending_bills=Unit.objects.filter(status='pending').count()
+    data={'num_users': num_users,
+          'num_staff': num_staff,
+          'paid_bills':paid_bills,
+          'pending_bills':pending_bills}
+    labels = ['Paid Bills', 'Pending Bills']
+    values = [paid_bills, pending_bills]
+    fig, ax = plt.subplots()
+
+    # Plotting the pie chart
+    ax.pie(values, labels=labels, autopct='%1.1f%%', startangle=90)
+    ax.axis('equal')
+    img_data = BytesIO()
+    canvas = FigureCanvas(fig)
+    canvas.print_png(img_data)
+    img_base64 = base64.b64encode(img_data.getvalue()).decode('utf-8')
+    data['chart'] = img_base64
+    labels_bar = ['Users', 'Staff']
+    values_bar = [num_users, num_staff]
+
+    fig_bar, ax_bar = plt.subplots()
+    ax_bar.bar(labels_bar, values_bar, color=['blue', 'orange'])
+
+    # Save the bar graph to BytesIO
+    img_data_bar = BytesIO()
+    canvas_bar = FigureCanvas(fig_bar)
+    canvas_bar.print_png(img_data_bar)
+    img_base64_bar = base64.b64encode(img_data_bar.getvalue()).decode('utf-8')
+    data['chart_bar'] = img_base64_bar
+
+    user_join_dates = calculate_user_join_dates()
+    labels_date_joined = list(user_join_dates.keys())
+    values_date_joined = list(user_join_dates.values())
+
+    fig_date_joined, ax_date_joined = plt.subplots()
+    ax_date_joined.plot(labels_date_joined, values_date_joined, marker='o')
+    ax_date_joined.set_xticklabels(labels_date_joined, rotation=45,
+                                   ha='right')  # Rotate x-axis labels for better visibility
+
+    img_data_date_joined = BytesIO()
+    canvas_date_joined = FigureCanvas(fig_date_joined)
+    canvas_date_joined.print_png(img_data_date_joined)
+    img_base64_date_joined = base64.b64encode(img_data_date_joined.getvalue()).decode('utf-8')
+    data['chart_date_joined'] = img_base64_date_joined
+
+    return render(request,'electro/admin_dashboard.html',{'data':data})
+def calculate_user_join_dates():
+    CustomUser = get_user_model()
+    end_date = date.today()
+    start_date = end_date - timedelta(days=30)
+
+    user_join_dates = CustomUser.objects.filter(date_joined__range=(start_date, end_date)) \
+        .annotate(join_date=TruncDate('date_joined')) \
+        .values('join_date') \
+        .annotate(count=Count('id')) \
+        .order_by('join_date')
+
+    result = {str(entry['join_date']): entry['count'] for entry in user_join_dates}
+    return result
+def admin_adduser(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('myadmin')  # Redirect to the admin panel or another page
+    else:
+        form = CustomUserCreationForm()
+
+    return render(request, 'electro/admin_adduser.html', {'form': form})
+
 
 

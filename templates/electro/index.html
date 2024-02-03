@@ -3,31 +3,25 @@
 
 {% block content %}
 <section class="hero">
-    <img src="{% static '/images/bg5.jpg' %}" height="100%" width="100%">
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    /* background-attachment: fixed; */
-    background-size: cover;
-    filter: blur(2px);
-    z-index: -1; alt="Image" class="bg">
-    <div class="container">
-        <h2>WELCOME TO ELECTRO</h2>
-        <p>Efficient and reliable electricity services for all.</p>
-        <a href="#" class="cta-button">Get Started</a>
-    </div>
-</section>
-    <!-- </section>
+   <img src="{% static '/images/home.jpeg' %}" height="100%" width="100%" style="
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   background-size: cover;
+   z-index: -1;" alt="Image" class="bg">
 
-<section class="features"> -->
-<section class="features">
     <div class="container">
-        <h2><b>OUR SERVICES</b></h2>
+        <h2><i>WELCOME TO ELECTRO</i></h2><br>
+        <p>Efficient and reliable electricity services for all.</p><br>
+    </div>
+
+    <div class="container">
+        <h2><b>OUR SERVICES</b></h2><br>
         <div class="feature">
-            <h3>POWER DISTRIBUTION</h3>
-            <p>Reliable distribution of electricity to homes and businesses.</p>
+            <h3>POWER DISTRIBUTION</h3><br>
+            <p>Reliable distribution of electricity to homes and businesses.</p><br>
         </div>
         <div class="feature">
             <h3>CUSTOMER SUPPORT</h3>
@@ -39,46 +33,45 @@
         </div>
     </div>
 </section>
-
 <div class="contain">
     <div class="card">
         <div class="containercircle">
-            <i class="fa-solid fa-users" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+            <i class="fa-solid fa-users" style="color:#109daf; padding-left: 15px;padding-top: 20px;"></i>
         </div>
         <h2>CUSTOMER BASE</h2>
         <p>Our company has a customer base of 15 million people.</p>
     </div>
     <div class="card">
         <div class="containercircle">
-            <i class="fas fa-lightbulb" style="color: #2586d0; padding-left: 27px;padding-top: 20px;"></i>
+            <i class="fas fa-lightbulb" style="color:#109daf; padding-left: 27px;padding-top: 20px;"></i>
         </div>
         <h2>TOTAL CAPACITY</h2>
         <p>We have a total capacity of 19.65 GW.</p>
     </div>
     <div class="card">
         <div class="containercircle">
-            <i class="fas fa-solar-panel" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+            <i class="fas fa-solar-panel" style="color: #109daf; padding-left: 15px;padding-top: 20px;"></i>
         </div>
         <h2>SOLAR ROOFTOP</h2>
         <p>Our solar rooftop capacity is 2.89 GW.</p>
     </div>
     <div class="card">
         <div class="containercircle">
-            <i class="fa-solid fa-users-gear" style="color: #2586d0; padding-left: 15px;padding-top: 20px;"></i>
+            <i class="fa-solid fa-users-gear" style="color: #109daf; padding-left: 15px;padding-top: 20px;"></i>
         </div>
         <h2>EMPLOYEES</h2>
         <p>We have a team of 62,000 employees.</p>
     </div>
     <div class="card">
         <div class="containercircle">
-            <i class="fas fa-wind" style="color: #2586d0; padding-left: 24px;padding-top: 20px;"></i>
+            <i class="fas fa-wind" style="color: #109daf; padding-left: 24px;padding-top: 20px;"></i>
         </div>
         <h2>INSTALLED CAPACITY WIND</h2>
         <p>Our installed capacity for wind energy is 11.17 GW.</p>
     </div>
     <div class="card">
         <div class="containercircle">
-            <i class="fas fa-sun" style="color: #2586d0; padding-left: 22px;padding-top: 20px;"></i>
+            <i class="fas fa-sun" style="color: #109daf; padding-left: 22px;padding-top: 20px;"></i>
         </div>
         <h2>INSTALLED CAPACITY SOLAR</h2>
         <p>Our installed capacity for solar energy is 10.41 GW.</p>
@@ -120,6 +113,6 @@
         </ul>
     </div>
 </div>
-
 {% endblock content %}
+
 

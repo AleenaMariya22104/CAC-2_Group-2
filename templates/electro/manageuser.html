@@ -1,31 +1,14 @@
+{% extends 'base2.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electricity Board Admin Panel - Manage Users</title>
-    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
-</head>
-<body style="background-image: url('{% static '/images/admin2.jpg' %}'); background-size: cover; background-position: center;backdrop-filter: blur(100px);">
+{% block page_title %}MANAGE USER{% endblock %}
+{% block content %}
 
-<header>
-    <h1>Electricity Board Admin Panel</h1>
-</header>
-
-<nav>
-    <ul>
-        <li><a href="{% url 'manage' %}">Home</a></li>
-        <li><a href="users.html">Manage Users</a></li>
-        <li><a href="statistics.html">Usage Statistics</a></li>
-        <li><a href="settings.html">Settings</a></li>
-    </ul>
-</nav>
+<body style="background-image: url('{% static '/images/admin3.jpg' %}'); background-size: cover; background-position: center;backdrop-filter: blur(100px);">
 
 <main>
     <section>
         <h2 style="color: white;">Manage Users</h2>
-        <table>
+        <table style="color: white;">
             <thead>
                 <tr>
                     <th>User ID</th>
@@ -51,22 +34,4 @@
         </table>
     </section>
 </main>
-
-
-
-
-       
-
-        <!-- <h3>User Reports</h3>
-        <p>View reports on user activity and performance:</p>
-        <ul>
-            <li><a href="#">Monthly User Activity</a></li>
-            <li><a href="#">Top Users by Usage</a></li>
-        </ul> -->
-
-<footer>
-    <p class="backtext">&copy; Electro</p>
-</footer>
-</body>
-
-</html>
+{% endblock content %}

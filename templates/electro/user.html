@@ -1,3 +1,4 @@
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -9,14 +10,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-
     <title>Sign-in</title>
+
 </head>
 
-<body>
+    <body>
 
-    {% block content %}
+
     <div class="wrapper">
         <form action="" method="POST">
             {% csrf_token %}
@@ -44,7 +44,6 @@
             </div>
         </form>
     </div>
-    {% endblock content %}
-</body>
+    </body>
 
 </html>

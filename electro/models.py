@@ -36,7 +36,7 @@ class CustomUser(AbstractUser):
 class Invoice(models.Model):
     staff = models.ForeignKey(CustomUser, related_name='generated_invoices', on_delete=models.CASCADE,null=True)
     customer = models.ForeignKey(CustomUser, related_name='invoices', on_delete=models.CASCADE)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField(null=True)
     total_amount = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     status = models.CharField(max_length=10, choices=[('pending', 'Pending'), ('paid', 'Paid')], default='pending')
     objects = models.Manager()

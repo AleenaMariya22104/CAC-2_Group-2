@@ -3,6 +3,7 @@ from .import views
 urlpatterns = [
     path('',views.home,name='homepage'),
     path('myadmin/',views.my_admin,name='myadmin'),
+    path('adduser/',views.admin_adduser,name='adduser'),
     path('user/',views.user,name='user'),
     path('signup/',views.signup,name='signup'),
     path('userhomepage/',views.user_homepage,name='userhomepage'),
@@ -22,6 +23,7 @@ urlpatterns = [
     path('downloadinvoice/',views.download_invoice,name='download_invoice'),
     path('complaint/',views.complaint,name='complaint'),
     path('dashboard/', views.UserDashboardView.as_view(), name='user_dashboard'),
-    path('manageuser/',views.manageuser,name='manage')
+    path('manageuser/',views.manageuser,name='manage'),
+    path('admindashboard/',views.admin_dashboard,name='admindashboard'),
 ]
 

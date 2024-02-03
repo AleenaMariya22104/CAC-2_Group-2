@@ -42,3 +42,8 @@ class PhoneLoginForm(AuthenticationForm):
 
 class InvoiceGenerationForm(forms.Form):
     user = forms.ModelChoiceField(queryset=CustomUser.objects.filter(user_type='user'), label='Select User')
+class CustomUserCreationForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name','email','password','phone_number']
+        widgets = {'password': forms.PasswordInput}

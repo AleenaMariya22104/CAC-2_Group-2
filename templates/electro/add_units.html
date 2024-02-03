@@ -2,10 +2,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>ADD UNITS</h2>
-<form method="post" action="">
-    {% csrf_token %}
-    {{ add_units_form.as_p }}
-    <button type="submit">Add Units</button>
-</form>
+        <form method="post" action="" style="padding-top: 10px;
+    padding-bottom: 70px;">
+            {% csrf_token %}
+            {{ add_units_form.as_p }}
+            <button type="submit">Add Units</button>
+        </form>
 {% endblock %}
