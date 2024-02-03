@@ -177,7 +177,7 @@ def download_receipt(request):
     }
 
     # Render the receipt as HTML
-    receipt_content = render_to_string("electro/billdetails.html", context)
+    receipt_content = render_to_string("electro/download_receipt.html", context)
 
     # Create a response with the receipt content and appropriate headers
     response = HttpResponse(content_type='application/pdf')
