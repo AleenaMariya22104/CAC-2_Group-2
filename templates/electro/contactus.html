@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,7 +72,7 @@
         }
 
         .bg{
-            background-image: url('contact.jpg');
+            background-image: url('/static/images/contact.jpg');
             background-repeat: no-repeat;
             background-size: cover; 
     
@@ -97,6 +96,9 @@
             color: white;
             align-items: center;
         }
+        
+       
+        
 
         
     </style>
@@ -122,42 +124,33 @@
         <marquee><h1 align="center">Get in Touch With Us</h1></marquee>
         <p align="center">Feedback Form:</p>
         
-       
-<section id="success-message" style="display:none;">
-    <h1 align="center">Thank You!</h1>
-    <p align="center">Your feedback has been submitted successfully.</p>
-</section>
+        <form class="container">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
 
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
 
-<form class="container" onsubmit="return submitForm();">
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-    <label for="email">Your Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="message">Your Message:</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
-
-    <button type="submit">Submit</button>
-</form>
-
-<script>
-    function submitForm() {
-        
-        document.getElementById('success-message').style.display = 'block';
-
-       
-        document.querySelector('form.container').style.display = 'none';
-
-       
-        return false;
-    }
-</script>
-
+            <button type="submit" onclick="alert('Submitted Successfully!')">Submit</button>
+            <div id="message"></div>
+        </form>
+    </section>
 </main>
 <footer>
     <p class="backtext">&copy; Electro</p>
 </footer>
+
+
+<script>
+    document.getElementById("myButton").onclick = function() {
+        // Display message after button click
+        var messageElement = document.getElementById("message");
+        messageElement.textContent = "Button clicked!";
+        messageElement.style.display = "block"; // Show the message
+    };
+</script>
 </body>
 </html>
