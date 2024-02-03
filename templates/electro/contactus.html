@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +73,7 @@
         }
 
         .bg{
-            background-image: url('/static/images/contact.jpg');
+            background-image: url('contact.jpg');
             background-repeat: no-repeat;
             background-size: cover; 
     
@@ -121,19 +122,39 @@
         <marquee><h1 align="center">Get in Touch With Us</h1></marquee>
         <p align="center">Feedback Form:</p>
         
-        <form class="container">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" required>
+       
+<section id="success-message" style="display:none;">
+    <h1 align="center">Thank You!</h1>
+    <p align="center">Your feedback has been submitted successfully.</p>
+</section>
 
-            <label for="email">Your Email:</label>
-            <input type="email" id="email" name="email" required>
 
-            <label for="message">Your Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+<form class="container" onsubmit="return submitForm();">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
 
-            <button type="submit">Submit</button>
-        </form>
-    </section>
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">Your Message:</label>
+    <textarea id="message" name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    function submitForm() {
+        
+        document.getElementById('success-message').style.display = 'block';
+
+       
+        document.querySelector('form.container').style.display = 'none';
+
+       
+        return false;
+    }
+</script>
+
 </main>
 <footer>
     <p class="backtext">&copy; Electro</p>
