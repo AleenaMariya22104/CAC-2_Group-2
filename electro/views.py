@@ -70,7 +70,7 @@ def user(request):
         if user is not None:
             login(request, user)
 
-            # Access user_type from the associated CustomUser model
+
             user_type = request.user.user_type
             print(user_type)
 
@@ -140,7 +140,7 @@ def billinfo(request):
     unit_instance = Unit.objects.filter(user=user).latest('due_date')
 
 
-    # Get additional user information
+
     user_name = f"{user.first_name} {user.last_name}"
     phone_number = user.phone_number
     due_date = unit_instance.due_date
@@ -177,10 +177,10 @@ def download_receipt(request):
         'amount': amount
     }
 
-    # Render the receipt as HTML
+
     receipt_content = render_to_string("electro/download_receipt.html", context)
 
-    # Create a response with the receipt content and appropriate headers
+
     response = HttpResponse(content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="receipt.pdf"'
 
@@ -222,7 +222,6 @@ def add_units(request):
                 Unit.objects.create(user=user, units=units, due_date=due_date,amount=units*9)
 
 
-            # Get the existing unit record for the user and due date
 
             return HttpResponseRedirect(reverse('staff'))
     else:

@@ -34,6 +34,7 @@
 
 <body>
 <header>
+    <!-- <img src="logo.png" alt="Electricity Board Management Logo" class="logo" style="height:100px"> -->
     <div class="container">
         <h1>ELECTRO</h1>
         <nav>
@@ -65,10 +66,12 @@
 
 <script>
     function changeColor(link) {
+        // Remove 'active' class from all links
         document.querySelectorAll('header nav ul li a').forEach(function (a) {
             a.classList.remove('active');
         });
 
+        // Add 'active' class to the clicked link
         link.classList.add('active');
     }
 </script>
