@@ -2,18 +2,42 @@
 
 # ELECTRO
 ## Shocking the Norms, Energizing Tomorrow!!!
-## Group-2
-## Team members:
+## Group-2 Team members:
 Aleena Mariya Sebastian (23122104)
 Gungun Agnihotri (23122118)
 Tanuja Gupta (23122137)
 Thumar Dhruvil Jamanbhai (23122138)
 ## ABOUT ELECTRO
-Electro is a website based on the electricity board management system, enabling different consumers to pay their electricity bills and access all the services and features provided by a particular electricity supply chain more straightforwardly and productively.
+Electro is a website based on the electricity board management system. It enables different consumers to pay their electricity bills and access all the services and features provided by a particular electricity supply chain more straightforwardly and productively.
 
-## FUNCTIONALITIES
+## HOW TO RUN
+When accessing the login page on the electro, users are presented with distinct options based on their roles. If identified as a user, access is granted to the user-specific page, offering functionalities tailored to their needs. Staff members are directed to a dedicated staff page, providing access to tools and information relevant to their responsibilities. Meanwhile, admins are granted entry to the admin page, where they can perform higher-level system management and oversight tasks.
+Upon selecting the "Billing" option, the system prompts users to input their phone number. Subsequently, users can obtain a summary of their bill payment, streamlining the process for accessing and reviewing payment details, and from there, users can download the receipt.
 
+ ## FUNCTIONALITIES 
+ BILLING:
+ Bill Generation: The system generates electricity bills based on consumption data, tariff rates, and other relevant parameters.
+ Disconnection and Reconnection: Facilitates the management of service disconnection and reconnection processes based on payment status and compliance with 
+ billing requirements.
+ Payment Processing: Provides a platform for customers to make payments securely, supporting various payment methods such as online transactions, bank transfers, 
+ and in-person payments.
+ 
+ USER:
+ Account Registration/Login: Create a new account by providing the necessary details. Log in securely using credentials.
+ Billing Information: View and download current and past electricity bills.
+ Payment Management: Make online payments securely through various methods. View payment history and receipts.
+ Service Requests: Raise service requests, such as connection/disconnection or reporting issues.
 
+ ADMIN:
+ User Management: Create, modify, and delete user accounts. Assign roles and permissions to users based on their responsibilities.
+ Reports and Analytics: Access comprehensive reports on various aspects of the electricity board's operations. Analyze data to derive insights, identify trends, 
+ and make informed decisions.
+ System Monitoring: Monitor system performance, including server health and network activity. Address and resolve any issues that may arise promptly.
+
+ STAFF:
+ Customer Management: Handle customer inquiries, requests, and issues. Update and maintain customer information in the system.
+ Meter Readings: Monitor and manage meter readings.
+ Connection/Disconnection: Process requests for new connections or disconnections.
 
 ## HOME PAGE
 ![Screenshot 2024-02-05 103203](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/363ffbde-7ef2-46cb-a53e-6409ab6e00e2)
@@ -94,39 +118,5 @@ Electro is a website based on the electricity board management system, enabling 
 
 ## CONTACT US
 ![Screenshot 2024-02-05 204832](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/302da037-7538-4072-a98c-fba13483a142)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
