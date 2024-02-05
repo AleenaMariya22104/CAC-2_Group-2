@@ -1,2 +1,12 @@
 # Electricity Board Management
-![Screenshot 2024-02-05 204832](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/b5ed0d3b-0257-4c83-9bd5-1e2f7bdda6e3)
+
+# ELECTRO
+## Shocking the Norms, Energizing Tomorrow
+## ABOUT ELECTRO
+Electro is a website based on the electricity board management system, enabling
+different consumers to pay their electricity bills and access all the services and features
+provided by a particular electricity supply chain more straightforwardly and
+productively.
+
+## HOME PAGE
+![Screenshot 2024-02-05 103203](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/363ffbde-7ef2-46cb-a53e-6409ab6e00e2)
