@@ -12,7 +12,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/static/images/login3.jpg');
+    background: url('/static/images/login-2.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -56,7 +56,7 @@ body {
 
 
 .input-box input::placeholder {
-    color: #ccc; /* Adjusted placeholder color for better visibility */
+    color: #0f0f0f; /* Adjusted placeholder color for better visibility */
 }
 
 .input-box i {
