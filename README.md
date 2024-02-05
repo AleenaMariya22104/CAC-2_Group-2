@@ -42,47 +42,51 @@ productively.
 ## ADD BILLING UNITS
 ![Screenshot 2024-02-05 111401](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/54758fb1-a22a-42d4-b9b1-6c79e111be71)
 
-##
+## VIEW COMPLAINTS
+![Screenshot 2024-02-05 195800](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/829364ee-1f41-4dd4-a9ab-1b7007cb92ed)
 
+## STAFF DASHBOARD
+![Screenshot 2024-02-05 200032](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/b515c92d-f7ed-4191-a2a0-ca0b66fa8695)
 
+## USER PAGE:
+## USER HOME PAGE
+![Screenshot 2024-02-05 201559](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/6ea8cde6-3d43-41f5-8c94-af4cc17702ba)
 
+## BILL CALCULATOR
+![Screenshot 2024-02-05 201714](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/72117a95-300e-421a-a99e-93048931d709)
 
+## PREVIOUS HISTORY
+![Screenshot 2024-02-05 201820](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/b7f6d884-c7db-44fe-bd23-8ff0d3629e53)
 
+## REGISTER COMPLAINT
+![Screenshot 2024-02-05 201918](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/d4b4c406-042d-45f6-9d34-8778920bb95b)
 
+## USER DASHBOARD
+![Screenshot 2024-02-05 202449](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/d19608f5-0ae2-4caa-8644-dcd8240fbe31)
 
+## PAYBILL
+![Screenshot 2024-02-05 202704](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/db3a775d-cf78-4e7d-bc73-0e934a8b8b3e)
 
+## INVOICE LIST
+![Screenshot 2024-02-05 202856](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/3b7170c1-7d13-4dee-930f-c3cbac3dea58)
 
+## DOWNLOADED INVOICE
+![Screenshot 2024-02-05 203220](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/e0d773db-16d8-4d2c-9ad7-076361de556a)
 
+## BILL LOGIN
+![Screenshot 2024-02-05 203933](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/6ae70ffc-e444-4e9e-b5d7-319e4e18a543)
 
+## BILL INFO
+![Screenshot 2024-02-05 204348](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/930902dc-b852-48f1-bb25-03665f374c81)
 
+## RECEIPT
+![Screenshot 2024-02-05 204454](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/cf71005f-a49d-4b49-9319-f79d8505fccf)
 
+## ABOUT US
+![Screenshot 2024-02-05 204723](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/06d16f4b-db56-489e-9d24-62f06357322c)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## CONTACT US
+![Screenshot 2024-02-05 204832](https://github.com/AleenaMariya22104/CAC-2_Group-2/assets/143726239/302da037-7538-4072-a98c-fba13483a142)
 
 
 
