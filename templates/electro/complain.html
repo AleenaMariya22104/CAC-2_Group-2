@@ -1,32 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
+  <!-- Main content container -->
   <div class="testbox">
+    <!-- Complain registration form -->
     <form method="post" action="{% url 'complain_form' %}">
       {% csrf_token %}
+      <!-- Form banner -->
       <div class="banner">
         <h1>Complain Registration Form</h1>
       </div>
+
+      <!-- Name input field -->
       <div class="item">
         <h3>Name</h3>
         <div class="name-item">
           {{ form.name }}
         </div>
       </div>
+
+      <!-- Contact information section -->
       <div class="contact-item">
+        <!-- Email input field -->
         <div class="item">
           <h3>Email</h3>
           {{ form.email }}
         </div>
+        <!-- Phone input field -->
         <div class="item">
           <h3>Phone</h3>
           {{ form.phone }}
         </div>
+        <!-- Complaint message input field -->
         <div class="item">
           <h3>Write your complaint</h3>
           {{ form.message }}
         </div>
       </div>
+
+      <!-- Submit button -->
       <div class="btn-block">
         <button type="submit">Submit</button>
       </div>

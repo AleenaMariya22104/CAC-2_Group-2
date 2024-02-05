@@ -1,16 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-{#for invioce#}
+{# This is an HTML template for generating an invoice. #}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice</title>
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
 </head>
 <body>
 
 <div class="invoice-container">
+    <!-- Header section with company information -->
     <div class="header">
         <p><b>ELECTRO</b></p>
         <p>Christ Deemed to be University</p>
@@ -18,9 +20,10 @@
         <p>Phone: 1800-123-2009</p>
     </div>
 
+    <!-- Title for the invoice -->
     <div class="invoice-title">INVOICE</div>
 
-
+    <!-- Billing details section -->
     <div class="bill-to">
         <p>BILL TO:{{ phone_number }}</p>
         <p>Recipient Name:{{ user_name }}</p>
@@ -29,11 +32,10 @@
         <p>Email: {{ user.email }} </p>
     </div>
 
+    <!-- Invoice items table -->
     <div class="invoice-items">
         <table>
-
-
-
+            <!-- Individual rows for billing details -->
             <tr>
                 <td>Billing Unit</td>
                 <td>{{ unit}}</td>
@@ -47,22 +49,25 @@
                 <td>Discount</td>
                 <td>Nill</td>
             </tr>
-
-
         </table>
     </div>
 
+    <!-- Total amount section -->
     <div class="total">
         Total:{{ amount }}
     </div>
 
-
+    <!-- Thank you message -->
     <div class="thank-you">
-        Thank you choosing our services!
+        Thank you for choosing our services!
     </div>
-    <button id="downloadbutton" style="background-color: #04AA6D; margin-top: 10px; margin-left: 335px; color: white" > <a href="{% url 'download_invoice' %}">Download</a> </button>
+
+    <!-- Download button for the invoice -->
+    <button id="downloadbutton" style="background-color: #04AA6D; margin-top: 10px; margin-left: 335px; color: white" >
+        <!-- Link to the download_invoice URL -->
+        <a href="{% url 'download_invoice' %}">Download</a>
+    </button>
 </div>
 
 </body>
 </html>
-

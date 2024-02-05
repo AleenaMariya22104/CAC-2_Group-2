@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the webpage -->
     <title>Contact Us - Electricity Board Management</title>
+    <!-- Internal styles for the webpage -->
     <style>
+        /* General styling for the entire body of the webpage */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,6 +16,7 @@
             background-color: #f5f5f5;
         }
 
+        /* Styling for the header section */
         header {
             background-color: black;
             color: white;
@@ -19,14 +24,17 @@
             text-align: center;
         }
 
+        /* Styling for the main content section */
         main {
             padding: 20px;
         }
 
+        /* Styling for text color */
         p{
             color: white;
         }
 
+        /* Styling for the form container */
         form {
             background-color: white;
             padding: 10px;
@@ -36,12 +44,14 @@
             margin: 0 auto
         }
 
+        /* Styling for form labels */
         label {
             display: block;
             margin-bottom: 8px;
             color: white;
         }
 
+        /* Styling for form inputs and button */
         input, textarea, button {
             width: 100%;
             padding: 10px;
@@ -49,6 +59,7 @@
             box-sizing: border-box;
         }
 
+        /* Styling for the form submit button */
         button {
             background-color: #4CAF50;
             color: white;
@@ -58,10 +69,12 @@
             cursor: pointer;
         }
 
+        /* Styling for the form submit button on hover */
         button:hover {
             background-color: #45a049;
         }
 
+        /* Styling for the footer section */
         footer {
             background-color: #100f0f;
             color: #fff;
@@ -71,13 +84,14 @@
             width: 100%;
         }
 
+        /* Styling for the background image */
         .bg{
             background-image: url('/static/images/contact.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-
-
         }
+
+        /* Styling for the form container */
         .container {
             max-width: 500px;
             background-color: transparent;
@@ -87,60 +101,76 @@
             margin-top: 2px;
         }
 
+        /* Styling for the contact information section */
         .contact-info {
             text-align: center;
             margin-top: 20px;
         }
 
+        /* Styling for the heading */
         h1{
             color: white;
             align-items: center;
         }
-
-
     </style>
 </head>
 <body class="bg">
 
+<!-- Header section -->
 <header>
     <h1>Contact Us</h1>
 </header>
 
+<!-- Main content section -->
 <main>
 
+    <!-- Contact Information section -->
     <section class="contact-info" align="center">
         <h1>Contact Information</h1>
+        <!-- Address -->
         <p><strong>Address:</strong> Christ(Deemed to be)University Lavasa</p>
+        <!-- Email -->
         <p><strong>Email:</strong> info@electro.com</p>
+        <!-- Phone number -->
         <p><strong>Phone:</strong> +91 9612758835</p>
     </section>
     <br>
     <br>
     <br>
+
+    <!-- Feedback Form section -->
     <section>
+        <!-- Introduction to the Feedback Form -->
         <p align="center">Feedback Form:</p>
 
-    <form class="container" onsubmit="submitForm(); return false;">
-        <label for="name">Your Name:</label>
-        <input type="text" id="name" name="name" required>
+        <!-- Feedback Form Container -->
+        <form class="container" onsubmit="submitForm(); return false;">
+            <!-- Name input field -->
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="email">Your Email:</label>
-        <input type="email" id="email" name="email" required>
+            <!-- Email input field -->
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
 
-        <label for="message">Your Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
+            <!-- Message input field -->
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-        <button type="submit">Submit</button>
-    </form>
+            <!-- Submit button -->
+            <button type="submit">Submit</button>
+        </form>
 
-    <section id="success-message" style="display:none;">
-        <h1 align="center">Thank You!</h1>
-        <p align="center">Your feedback has been submitted successfully.</p>
+        <!-- Success Message section -->
+        <section id="success-message" style="display:none;">
+            <!-- Success message upon form submission -->
+            <h1 align="center">Thank You!</h1>
+            <p align="center">Your feedback has been submitted successfully.</p>
+        </section>
     </section>
-</section>
-
 
 <script>
+    // JavaScript function to handle form submission
     function submitForm() {
         document.getElementById('success-message').style.display = 'block';
         document.querySelector('form.container').style.display = 'none';
@@ -148,7 +178,10 @@
 </script>
 
 </main>
+
+<!-- Footer section -->
 <footer>
+    <!-- Copyright information -->
     <p class="backtext">&copy; Electro</p>
 </footer>
 </body>

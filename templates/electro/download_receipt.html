@@ -2,20 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta tags for character set and responsive design -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title of the webpage -->
   <title>Online Bill Payment Receipt</title>
+  <!-- Link to the external stylesheet for styling -->
   <link rel="stylesheet" type="text/css" href="{% static 'css/billdetails.css' %}">
 </head>
 <body>
+  <!-- Main container for the receipt -->
   <div class="container">
+    <!-- Heading for the receipt -->
     <h1><b>ONLINE BILL PAYMENT SUMMARY</b></h1>
+    
+    <!-- Outstanding due amount section -->
     <div class="outstanding">
       <p>Your Outstanding due amount is {{amount}}</p>
-
     </div>
+
+    <!-- Latest bill summary section -->
     <div class="latest">
       <h2>LATEST BILL SUMMARY</h2>
+
+      <!-- Table for displaying bill details -->
       <table>
         <tr>
           <td>Registered PhoneNumber</td>
@@ -41,12 +51,15 @@
           <td>Net Payable Amount</td>
           <td>{{amount}}</td>
         </tr>
-
       </table>
-        <div class="footer">
-      <p>Thank you for choosing our services.</p>
-      <p>We hope to see you again soon.</p>
-      <p><strong>~ELECTRO~</strong></p>
-        </div>
+
+      <!-- Footer section with thank you message -->
+      <div class="footer">
+        <p>Thank you for choosing our services.</p>
+        <p>We hope to see you again soon.</p>
+        <p><strong>~ELECTRO~</strong></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

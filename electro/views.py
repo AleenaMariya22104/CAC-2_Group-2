@@ -24,6 +24,10 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from io import BytesIO
 import base64
 
+from matplotlib.offsetbox import BboxImage
+
+
+
 
 from chartjs.views.lines import BaseLineChartView
 from django.utils import timezone

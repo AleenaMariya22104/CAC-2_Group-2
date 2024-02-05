@@ -2,14 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title of the invoice -->
     <title>Invoice</title>
+    <!-- Link to the external stylesheet for styling -->
     <link rel="stylesheet" href="{% static 'css/invoice.css' %}">
 </head>
 <body>
 
+<!-- Main container for the invoice -->
 <div class="invoice-container">
+    <!-- Header section with company information -->
     <div class="header">
         <p><b>ELECTRO</b></p>
         <p>Christ Deemed to be University</p>
@@ -17,13 +22,16 @@
         <p>Phone: 1800-123-2009</p>
     </div>
 
+    <!-- Invoice title -->
     <div class="invoice-title">INVOICE</div>
 
+    <!-- Invoice information section -->
     <div class="invoice-info">
         <span>INVOICE: </span><br/>
-        DATE:
+        DATE: <!-- Add dynamic date here if needed -->
     </div>
 
+    <!-- Bill-to section with recipient details -->
     <div class="bill-to">
         <p>BILL TO:{{ phone_number }}</p>
         <p>Recipient Name:{{ user_name }}</p>
@@ -32,6 +40,7 @@
         <p>Email: {{ user.email }} </p>
     </div>
 
+    <!-- Invoice items section with a table for description and amount -->
     <div class="invoice-items">
         <table>
             <tr>
@@ -39,32 +48,35 @@
                 <th>AMOUNT</th>
             </tr>
 
-
+            <!-- Example item: Billing Unit -->
             <tr>
                 <td>Billing Unit</td>
                 <td>{{ unit}}</td>
             </tr>
 
+            <!-- Example item: Cost per unit -->
             <tr>
                 <td>Cost per unit</td>
                 <td>9</td>
             </tr>
+
+            <!-- Example item: Discount -->
             <tr>
                 <td>Discount</td>
                 <td>Nill</td>
             </tr>
-
-
         </table>
     </div>
 
+    <!-- Total amount section -->
     <div class="total">
         Total:{{ amount }}
     </div>
 
-
+    <!-- Thank you message section -->
     <div class="thank-you">
-        Thank you choosing our services!
-    </div></div>
-    </body>
+        Thank you for choosing our services!
+    </div>
+</div>
+</body>
 </html>
