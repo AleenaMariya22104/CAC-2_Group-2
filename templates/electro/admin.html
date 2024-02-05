@@ -1,20 +1,26 @@
+<!-- admin_page.html -->
 
 {% extends 'base2.html' %}
+
 {% load static %}
+
 {% block page_title %}ADMIN PAGE{% endblock %}
+
 {% block content %}
+    <!-- Section for the main content of the admin page -->
     <section>
-        
+        <!-- Container for the main content, including an image and overlay -->
         <div class="container">
+            <!-- Image for the admin page, sourced from static/images/admin1jpg.jpg -->
             <img src="{% static '/images/admin1jpg.jpg' %}" alt="Avatar" class="image">
+            
+            <!-- Overlay with text for additional styling -->
             <div class="overlay">
-              <div class="text"> <h2>Welcome to the Admin Panel</h2></div>
-             
-
+                <!-- Text content inside the overlay, including a welcome message -->
+                <div class="text">
+                    <h2>Welcome to the Admin Panel</h2>
+                </div>
             </div>
-          </div>
-
+        </div>
     </section>
 {% endblock content %}
-
-

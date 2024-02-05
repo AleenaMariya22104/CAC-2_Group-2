@@ -1,70 +1,70 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{#about us page #}
+{# About Us Page #}
 <style>
+    /* Styling for the body */
     body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin:0;
-}
-.bg{
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+    }
 
-.container1 {
-    flex: 1;
-    margin-left: 300px;
-    max-width: 800px;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    /* Styling for the background image */
+    .bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-    background-color: transparent;
-    padding: 20px;
+    /* Styling for the main content container */
+    .container1 {
+        flex: 1;
+        margin-left: 300px;
+        max-width: 800px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+        background-color: transparent;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+    /* Styling for the heading level 1 */
+    h1 {
+        color: #ffffff;
+        font-weight: bolder;
+    }
 
-h1 {
-    color: #ffffff;
-    font-weight: bolder;
-}
-h2 {
-    color: #ffffff;
-}
-p {
-    line-height: 1.6;
-    color: #ffffff;
-    font-weight: bolder;
-}
+    /* Styling for the heading level 2 */
+    h2 {
+        color: #ffffff;
+    }
 
-
+    /* Styling for paragraphs */
+    p {
+        line-height: 1.6;
+        color: #ffffff;
+        font-weight: bolder;
+    }
 </style>
 
-
-
-<body class="bg"
-style="background-image: url({% static '/images/about.jpg' %});">
-
-
+<body class="bg" style="background-image: url({% static '/images/about.jpg' %});">
     <div class="container1">
         <marquee><h1>Shocking the Norms, Energizing Tomorrow: About Electro</h1></marquee>
 
-            <h2>"Electricity can transform people's lives, not just economically but also socially."</h2>
-            <p> Welcome to Electro, where we're not just a power source; we're a pulsating force of innovation.
-             As sparks of creativity meet the currents of ingenuity, we redefine what it means to power the world.
-             Here's a glimpse into the heartbeat of Electro, the electrifying force propelling us into the future.
-Electro is a website based on the electricity board management system, enabling
-different consumers to pay their electricity bills and access all the services and features
-provided by a particular electricity supply chain more straightforwardly and
-productively.</p>
+        <!-- Subheading -->
+        <h2>"Electricity can transform people's lives, not just economically but also socially."</h2>
+
+        <!-- Main content about Electro -->
+        <p> Welcome to Electro, where we're not just a power source; we're a pulsating force of innovation.
+            As sparks of creativity meet the currents of ingenuity, we redefine what it means to power the world.
+            Here's a glimpse into the heartbeat of Electro, the electrifying force propelling us into the future.
+            Electro is a website based on the electricity board management system, enabling different consumers to pay
+            their electricity bills and access all the services and features provided by a particular electricity
+            supply chain more straightforwardly and productively.</p>
     </div>
 </body>
 {% endblock content %}
-
-

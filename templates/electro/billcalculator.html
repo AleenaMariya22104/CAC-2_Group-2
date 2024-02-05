@@ -1,21 +1,25 @@
+<!-- electricity_bill_calculator.html -->
+
 {% load static %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
+  <!-- Title and linking to the CSS file -->
   <title>Electricity Bill Calculator</title>
   <link rel="stylesheet" href="{% static 'css/billcalculator.css' %}">
   <style>
+    /* Additional inline styles for the body */
     .body {
-      
+      /* Add any additional styles here if needed */
     }
   </style>
 </head>
 
 <body class="body">
 
-
-
+  <!-- Section for decorative air elements -->
   <section>
     <div class='air air1'></div>
     <div class='air air2'></div>
@@ -23,59 +27,65 @@
     <div class='air air4'></div>
   </section>
 
+  <!-- Main container for input and output fields -->
   <div class="main-container">
+    <!-- Input fields section -->
     <div class="input-fields">
+      <!-- Displaying user_name -->
       <label for="customerId">user_name:</label>
       <input type="text" id="customerId" name="customerId" value="{{ request.user.username }}" readonly>
 
+      <!-- Displaying user's phone number -->
       <label for="phoneNumber">Phone Number:</label>
-       <input type="text" id="phoneNumber" name="phoneNumber" value="{{ user_phone_number }}" readonly>
+      <input type="text" id="phoneNumber" name="phoneNumber" value="{{ user_phone_number }}" readonly>
 
-
+      <!-- Input field for entering previous unit -->
       <label for="unit">Enter previous unit</label>
       <input type="number" id="prev_unit" name="previous_unit">
 
+      <!-- Input field for entering new unit -->
       <label for="unit">Enter new unit</label>
       <input type="number" id="unit" name="unit" value="{{ user_units }}" readonly>
     </div>
 
+    <!-- Output fields section -->
     <div class="output-fields">
       <div class="main-container">
+        <!-- Displaying the calculated amount -->
         <label>Amount:</label>
         <span id="amount">0.0</span>
 
+        <!-- Thank you message -->
         <p id="thankYouMessage">Thank You Come Again</p>
       </div>
     </div>
 
-
-
+    <!-- Button for calculating the bill -->
     <button class="button-30" role="button" id="calculateButton">Calculate</button>
 
-    <!-- 
-    <button id="calculateButton">Calculate</button>
-    <button id="Button">PayBill</button>
-    <button id="printButton">Print</button> -->
-
-
   </div>
+
+  <!-- Script section for JavaScript functionality -->
   <script>
+    // Event listener for the Calculate button
     document.getElementById('calculateButton').addEventListener('click', function () {
+      // Retrieve values from input fields
       var prevUnit = parseFloat(document.getElementById('prev_unit').value);
       var newUnit = parseFloat(document.getElementById('unit').value);
+
+      // Calculate units consumed and final bill amount
       var unitsConsumed = newUnit - prevUnit;
-      var finalBill = unitsConsumed *9;
+      var finalBill = unitsConsumed * 9;
 
-    // Display the result
-    document.getElementById('amount').innerText = finalBill.toFixed(2);
-  });
+      // Display the result in the 'amount' span
+      document.getElementById('amount').innerText = finalBill.toFixed(2);
+    });
 
+    // Event listener for the Print button (assuming a print functionality)
     document.getElementById('printButton').addEventListener('click', function () {
-      // Assume printing functionality here
       alert("Printing the bill...");
     });
   </script>
-
 
 </body>
 

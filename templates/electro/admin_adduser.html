@@ -1,65 +1,79 @@
+<!-- admin_add_user.html -->
+
 {% extends 'base2.html' %}
 {% load static %}
+
 {% block page_title %}ADMIN ADD USER{% endblock %}
+
 {% block content %}
+    <!-- Styling for the form using an embedded style block -->
     <style>
-    /* static/css/styles.css */
+        /* Styling for the form page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: gainsboro;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: gainsboro;
-}
+        /* Styling for the main content container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
-}
+        /* Styling for the form elements */
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
+        /* Styling for form labels */
+        label {
+            margin-bottom: 8px;
+        }
 
-label {
-    margin-bottom: 8px;
-}
+        /* Styling for form inputs */
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
 
-input {
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        /* Styling for form submission button */
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
+        /* Hover effect for the form submission button */
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
+
+    <!-- Section for the main content of the admin add user page -->
     <section>
+        <!-- Container for the main content, including the user addition form -->
         <div class="container">
-            <form method="post" action="" style="
-    padding-bottom: 80px;padding-top: 0px;">
+            <!-- Form for adding a user, sourced from the 'form' variable -->
+            <form method="post" action="" style="padding-bottom: 80px; padding-top: 0px;">
                 {% csrf_token %}
+                
+                <!-- Render the form fields as paragraphs -->
                 {{ form.as_p }}
+                
+                <!-- Submit button to add the user -->
                 <button type="submit">Add User</button>
             </form>
         </div>
     </section>
 {% endblock content %}
-
-

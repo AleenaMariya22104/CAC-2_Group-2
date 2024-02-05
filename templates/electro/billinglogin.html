@@ -1,11 +1,17 @@
+<!-- billing_login.html -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing Login</title>
-    
+
+    <!-- Styling for the login page -->
     <style>
+        /* Body styles */
         body {
             font-family: Arial, sans-serif;
             background-color: black;
@@ -17,6 +23,7 @@
             height: 100vh;
         }
 
+        /* Container styles for login form */
         .login-container {
             background-color: #fff;
             padding: 20px;
@@ -25,6 +32,7 @@
             width: 300px;
         }
 
+        /* Input field styles */
         input {
             width: 100%;
             padding: 10px;
@@ -34,6 +42,7 @@
             border-radius: 4px;
         }
 
+        /* Button styles */
         button {
             background-color: #4caf50;
             color: #fff;
@@ -44,26 +53,37 @@
             width: 100%;
         }
 
+        /* Button hover effect */
         button:hover {
             background-color: #45a049;
         }
     </style>
 </head>
+
 <body>
+    <!-- Container for the login form -->
     <div class="login-container" style="
-    padding-top: 70px;
-    width: 300px;
-    border-bottom-width: 70px;
-    padding-bottom: 70px;
-">
+        padding-top: 70px;
+        width: 300px;
+        border-bottom-width: 70px;
+        padding-bottom: 70px;
+    ">
+        <!-- Heading for the login form -->
         <h2>Billing Login</h2>
+
+        <!-- Login form -->
         <form method="post" action="">
+            <!-- CSRF token for form submission security -->
             {% csrf_token %}
+
+            <!-- Input field for phone number -->
             <label for="phone_number">Phone Number:</label>
             <input type="tel" id="phone_number" name="phone_number" required>
 
+            <!-- Submit button for form submission -->
             <button type="submit">Login</button>
         </form>
     </div>
 </body>
+
 </html>

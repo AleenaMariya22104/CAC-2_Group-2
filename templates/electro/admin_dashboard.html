@@ -1,85 +1,99 @@
+<!-- admin_dashboard.html -->
+
 {% extends 'base2.html' %}
 {% load static %}
+
 {% block page_title %}ADMIN DASHBOARD{% endblock %}
+
 {% block content %}
+    <!-- Styling for the charts and tables -->
     <style>
+        /* Container for charts, adjusting space between */
         .chart-container {
             display: flex;
             justify-content: space-between;
         }
 
+        /* Styling for individual charts */
         .chart {
             width: 35%;
-            text-align: center;}
+            text-align: center;
+        }
+
+        /* Styling for tables */
         table {
             border-collapse: collapse;
             width: 100%;
             margin-bottom: 20px;
         }
 
+        /* Styling for table headers and cells */
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
 
+        /* Styling for table header background */
         th {
             background-color: black;
-            color:white;
-        }/* Adjust the width as needed */
-
+            color: white;
+        }
     </style>
-<table>
-    <tr>
-        <th>Category</th>
-        <th>Count</th>
-    </tr>
-    <tr>
-        <td>Paid Bills</td>
-        <td>{{ data.paid_bills }}</td>
-    </tr>
-    <tr>
-        <td>Pending Bills</td>
-        <td>{{ data.pending_bills }}</td>
-    </tr>
-</table>
 
-<!-- Display the pie chart -->
-<div class="chart-container">
-    <div class="chart">
-        <img src="data:image/png;base64,{{ data.chart }}" alt="Pie Chart">
-        <p>Pie Chart: Paid and Pending Bills</p>
+    <!-- Table for displaying category counts -->
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Count</th>
+        </tr>
+        <tr>
+            <td>Paid Bills</td>
+            <td>{{ data.paid_bills }}</td>
+        </tr>
+        <tr>
+            <td>Pending Bills</td>
+            <td>{{ data.pending_bills }}</td>
+        </tr>
+    </table>
+
+    <!-- Display the pie chart -->
+    <div class="chart-container">
+        <div class="chart">
+            <img src="data:image/png;base64,{{ data.chart }}" alt="Pie Chart">
+            <p>Pie Chart: Paid and Pending Bills</p>
+        </div>
     </div>
-</div>
 
-<!-- Table for Bar Graph Data -->
-<table>
-    <tr>
-        <th>Category</th>
-        <th>Count</th>
-    </tr>
-    <tr>
-        <td>Users</td>
-        <td>{{ data.num_users }}</td>
-    </tr>
-    <tr>
-        <td>Staff</td>
-        <td>{{ data.num_staff }}</td>
-    </tr>
-</table>
+    <!-- Table for displaying bar graph data -->
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Count</th>
+        </tr>
+        <tr>
+            <td>Users</td>
+            <td>{{ data.num_users }}</td>
+        </tr>
+        <tr>
+            <td>Staff</td>
+            <td>{{ data.num_staff }}</td>
+        </tr>
+    </table>
 
-<!-- Display the bar graph -->
-<div class="chart-container">
-    <div class="chart">
-        <img src="data:image/png;base64,{{ data.chart_bar }}" alt="Bar Graph">
-        <p>Bar Graph: Users and Staff</p>
+    <!-- Display the bar graph -->
+    <div class="chart-container">
+        <div class="chart">
+            <img src="data:image/png;base64,{{ data.chart_bar }}" alt="Bar Graph">
+            <p>Bar Graph: Users and Staff</p>
+        </div>
     </div>
-</div>
-<div class="chart-container">
+
+    <!-- Display the line graph -->
+    <div class="chart-container">
         <div class="chart">
             <img src="data:image/png;base64,{{ data.chart_date_joined }}" alt="Date Joined Graph">
             <p>Line Graph: User Join Dates</p>
         </div>
     </div>
 {% endblock content %}
-

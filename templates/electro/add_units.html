@@ -1,11 +1,16 @@
 <!-- add_units.html -->
+
 {% extends 'base.html' %}
 
 {% block content %}
-        <form method="post" action="" style="padding-top: 10px;
-    padding-bottom: 70px;">
-            {% csrf_token %}
-            {{ add_units_form.as_p }}
-            <button type="submit">Add Units</button>
-        </form>
+    <!-- Form for adding units with specified styling -->
+    <form method="post" action="" style="padding-top: 10px; padding-bottom: 70px;">
+        {% csrf_token %}
+
+        <!-- Render the form fields as paragraphs -->
+        {{ add_units_form.as_p }}
+
+        <!-- Submit button to add units -->
+        <button type="submit">Add Units</button>
+    </form>
 {% endblock %}
