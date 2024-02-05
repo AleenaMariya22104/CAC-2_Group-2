@@ -1,49 +1,66 @@
-
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
+<!-- User page -->
 
 <head>
+    <!-- Meta tags for character set, viewport, and compatibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Sign-in</title>
 
+    <!-- Link to the static CSS file for styling -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <!-- External stylesheet link for boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Title of the page -->
+    <title>Sign-in</title>
 </head>
 
-    <body>
-
-
+<body>
+    <!-- Wrapper for the entire form -->
     <div class="wrapper">
+        <!-- Sign-in form -->
         <form action="" method="POST">
             {% csrf_token %}
+            <!-- Form title -->
             <h1>Login</h1>
+
+            <!-- Input box for username -->
             <div class="input-box">
                 <input type="text" id="cust_id" name="cust_id" placeholder="Enter username" required>
+                <!-- User icon -->
                 <i class='bx bxs-user'></i>
             </div>
 
+            <!-- Input box for password -->
             <div class="input-box">
                 <input type="password" id="pass" name="pass" placeholder="Password" required>
+                <!-- Lock icon -->
                 <i class='bx bxs-lock-alt'></i>
             </div>
 
+            <!-- Remember me and forgot password options -->
             <div class="remember-forgot">
                 <label><input type="checkbox">Remember me</label>
+                <!-- Link to the password recovery page -->
                 <a href="#">Forgot Password?</a>
             </div>
 
+            <!-- Submit button -->
             <button type="submit" class="btn">Login</button>
 
+            <!-- Registration link -->
             <div class="register-link">
                 <p>Don't have an account?</p>
+                <!-- Link to the registration page -->
                 <p><a href="{% url 'signup' %}">Register</a></p>
             </div>
         </form>
     </div>
-    </body>
+</body>
 
 </html>

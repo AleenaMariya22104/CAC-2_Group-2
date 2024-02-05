@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block page_title %}STAFF DASHBOARD{% endblock %}
+
 {% block content %}
+    <!-- Internal styles for chart container and individual chart -->
     <style>
         .chart-container {
             display: flex;
@@ -10,11 +14,18 @@
 
         .chart {
             width: 35%;
-            text-align: center;}
+            text-align: center;
+        }
     </style>
-<div class="chart-container">
+
+    <!-- Container for displaying charts -->
+    <div class="chart-container">
+        <!-- Chart for Date Joined -->
         <div class="chart">
+            <!-- Displaying line graph for user join dates, using base64 encoded image data -->
             <img src="data:image/png;base64,{{ data.chart_date_joined }}" alt="Date Joined Graph">
+            
+            <!-- Description for the chart -->
             <p>Line Graph: User Join Dates</p>
         </div>
     </div>

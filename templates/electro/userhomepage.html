@@ -3,11 +3,17 @@
 <html lang="en">
 
 <head>
+  <!-- Meta tags for character set, viewport, and initial scale -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Link to the static CSS file for styling -->
   <link rel="stylesheet" href="{% static 'css/userhome.css' %}">
+  
+  <!-- Title of the page -->
   <title>USER HOME PAGE</title>
-{#    user home page css #}
+
+  <!-- Inline style for background image and body -->
   <style>
     body {
       height: 100%;
@@ -16,14 +22,20 @@
       background-size: 100%;
     }
   </style>
+
+  <!-- Script link for font-awesome icons -->
   <script src="https://use.fontawesome.com/c9d2b81f44.js"></script>
 </head>
 
 <body>
+  <!-- Page heading -->
   <h1>"Welcome to ELECTRO —where electrifying experiences come to life! ⚡️"</h1>
 
+  <!-- Navigation container -->
   <div class="nav-container">
+    <!-- Navigation list with icons and links -->
     <ul class="nav">
+      <!-- Home icon and link -->
       <li class="active">
         <a href="#">
           <script src="https://cdn.lordicon.com/lordicon.js"></script>
@@ -32,73 +44,89 @@
           </lord-icon>
         </a>
       </li>
+      
+      <!-- Bill calculator icon and link -->
       <li>
         <a href="{% url 'calc' %}">
           <span class="icon-user"></span>
           <span class="text">Bill calculator</span>
         </a>
       </li>
-        <li>
-            <a href="{% url 'user_history' %}">
+
+      <!-- Previous history icon and link -->
+      <li>
+        <a href="{% url 'user_history' %}">
           <span class="icon-user"></span>
           <span class="text">Previous history</span>
         </a>
-        </li>
+      </li>
+
+      <!-- Register Complaint icon and link -->
       <li>
         <a href="{% url 'complain_form' %}">
           <span class="icon-play"></span>
           <span class="text">Register Complaint</span>
         </a>
       </li>
+
+      <!-- User Dashboard icon and link -->
       <li>
-          <a href="{% url 'user_dashboard' %}">
+        <a href="{% url 'user_dashboard' %}">
           <span class="icon-cogs"></span>
           <span class="text">USER DASHBOARD</span>
         </a>
       </li>
     </ul>
   </div>
+
+  <!-- Container for displaying user information and records -->
   <div class="container">
+    <!-- User greeting -->
     <h2>Welcome, {{ user.first_name }}!</h2>
+    
+    <!-- Table to display user units and bill information -->
     <table>
       <thead>
         <tr>
-          <th>Usename</th>
-          <th>First_Name</th>
-          <th>units</th>
+          <th>Username</th>
+          <th>First Name</th>
+          <th>Units</th>
           <th>Amount</th>
-          <th>Due_Date</th>
+          <th>Due Date</th>
         </tr>
       </thead>
       <tbody>
-            {% for unit in user_units %}
-            <tr>
-                <td>{{ user_info.username }}</td>
-                <td>{{ user_info.first_name }}</td>
-                <td>{{ unit.units }}</td>
-                <td>{{unit.amount}}</td> <!-- Replace with actual data -->
-                <td>{{unit.due_date}}</td> <!-- Replace with actual data -->
-            </tr>
-            {% endfor %}
-            <tr>
-              <th colspan="4">Pay Your Bill</th>
-          <td> <button class="button-30" role="button" onclick="pay_Bill()"><img src="{% static 'images/user2.png' %}"alt="" height="30px" width="30px">Pay Bill</button>
+        <!-- Loop through each unit in user_units -->
+        {% for unit in user_units %}
+          <!-- Table row for each unit -->
+          <tr>
+            <td>{{ user_info.username }}</td> <!-- Assuming 'user_info' is available in the context -->
+            <td>{{ user_info.first_name }}</td> <!-- Assuming 'user_info' is available in the context -->
+            <td>{{ unit.units }}</td>
+            <td>{{ unit.amount }}</td>
+            <td>{{ unit.due_date }}</td>
+          </tr>
+        {% endfor %}
+
+        <!-- Additional row for paying the bill -->
+        <tr>
+          <th colspan="4">Pay Your Bill</th>
+          <!-- Button to trigger the pay_Bill() function -->
+          <td> <button class="button-30" role="button" onclick="pay_Bill()"><img src="{% static 'images/user2.png' %}" alt="" height="30px" width="30px">Pay Bill</button>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-
+  <!-- JavaScript function to redirect to the paybill page -->
   <script>
-        function pay_Bill() {
-          console.log('pay_Bill function called');
-          var paybillUrl = "{% url 'paybill' %}";
-          window.location.href = paybillUrl;
-        }
-
-
+    function pay_Bill() {
+      console.log('pay_Bill function called');
+      var paybillUrl = "{% url 'paybill' %}";
+      window.location.href = paybillUrl;
+    }
   </script>
-
 </body>
 
 </html>
