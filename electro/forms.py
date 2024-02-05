@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import CustomUser, Unit
+from .models import CustomUser, Unit,Complaint
 from django.contrib.auth.forms import AuthenticationForm
 
 class SignupForm(forms.ModelForm):
@@ -45,5 +45,10 @@ class InvoiceGenerationForm(forms.Form):
 class CustomUserCreationForm(forms.ModelForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'first_name', 'last_name','email','password','phone_number']
+        fields = ['username', 'first_name', 'last_name','email','password','phone_number','user_type']
         widgets = {'password': forms.PasswordInput}
+
+class ComplaintForm(forms.ModelForm):
+    class Meta:
+        model = Complaint
+        fields = ['name', 'email', 'phone', 'message']

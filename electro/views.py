@@ -11,8 +11,9 @@ from django.urls import reverse
 from django.views import View
 from datetime import date, timedelta
 
-from .models import CustomUser, Invoice, Unit, UnitHistory
-from .forms import SignupForm, InvoiceGenerationForm, FilterCustomersForm, AddUnitsForm, PhoneLoginForm, CustomUserCreationForm
+from .models import CustomUser, Invoice, Unit, UnitHistory, Complaint
+from .forms import SignupForm, InvoiceGenerationForm, FilterCustomersForm, AddUnitsForm, PhoneLoginForm, \
+    CustomUserCreationForm, ComplaintForm
 from django.contrib import messages
 from django.template.loader import render_to_string
 from xhtml2pdf import pisa
@@ -304,10 +305,6 @@ def download_invoice(request):
     return response
 
 
-def complaint(request):
-    return render(request,"electro/complain.html")
-
-
 def user_history(request):
     # Retrieve the logged-in user's history
     user_history= UnitHistory.objects.filter(user=request.user)
@@ -373,11 +370,13 @@ def admin_dashboard(request):
     data['chart_bar'] = img_base64_bar
 
     user_join_dates = calculate_user_join_dates()
+    print("User Join Dates:", user_join_dates)
     labels_date_joined = list(user_join_dates.keys())
     values_date_joined = list(user_join_dates.values())
 
     fig_date_joined, ax_date_joined = plt.subplots()
     ax_date_joined.plot(labels_date_joined, values_date_joined, marker='o')
+    ax_date_joined.set_xticks(range(len(labels_date_joined)))
     ax_date_joined.set_xticklabels(labels_date_joined, rotation=45,
                                    ha='right')  # Rotate x-axis labels for better visibility
 
@@ -388,10 +387,32 @@ def admin_dashboard(request):
     data['chart_date_joined'] = img_base64_date_joined
 
     return render(request,'electro/admin_dashboard.html',{'data':data})
+def staffdashboard(request):
+    user_join_dates = calculate_user_join_dates()
+    print("User Join Dates:", user_join_dates)
+    labels_date_joined = list(user_join_dates.keys())
+    values_date_joined = list(user_join_dates.values())
+
+    fig_date_joined, ax_date_joined = plt.subplots()
+    ax_date_joined.plot(labels_date_joined, values_date_joined, marker='o')
+    ax_date_joined.set_xticks(range(len(labels_date_joined)))
+    ax_date_joined.set_xticklabels(labels_date_joined, rotation=45,
+                                   ha='right')  # Rotate x-axis labels for better visibility
+
+    img_data_date_joined = BytesIO()
+    canvas_date_joined = FigureCanvas(fig_date_joined)
+    canvas_date_joined.print_png(img_data_date_joined)
+    img_base64_date_joined = base64.b64encode(img_data_date_joined.getvalue()).decode('utf-8')
+    data = {'chart_date_joined': img_base64_date_joined}
+
+    return render(request, 'electro/staff_dashboard.html', {'data': data})
+
+
+
 def calculate_user_join_dates():
     CustomUser = get_user_model()
     end_date = date.today()
-    start_date = end_date - timedelta(days=30)
+    start_date = end_date - timedelta(days=60)
 
     user_join_dates = CustomUser.objects.filter(date_joined__range=(start_date, end_date)) \
         .annotate(join_date=TruncDate('date_joined')) \
@@ -411,6 +432,21 @@ def admin_adduser(request):
         form = CustomUserCreationForm()
 
     return render(request, 'electro/admin_adduser.html', {'form': form})
+def complain_form(request):
+    if request.method == 'POST':
+        form = ComplaintForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('userhomepage')
+    else:
+        form = ComplaintForm()
+
+    return render(request, 'electro/complain.html', {'form': form})
+
+def view_complaints(request):
+    complaints = Complaint.objects.all()
+    return render(request, 'electro/view_complaints.html', {'complaints': complaints})
+
 
 
 

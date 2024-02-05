@@ -21,9 +21,11 @@ urlpatterns = [
     path('contactus/',views.contactus,name='contactus'),
     path('invoicelist/',views.invoice_list,name='invoice_list'),
     path('downloadinvoice/',views.download_invoice,name='download_invoice'),
-    path('complaint/',views.complaint,name='complaint'),
     path('dashboard/', views.UserDashboardView.as_view(), name='user_dashboard'),
     path('manageuser/',views.manageuser,name='manage'),
     path('admindashboard/',views.admin_dashboard,name='admindashboard'),
+    path('staffdashboard/',views.staffdashboard,name='staffdashboard'),
+    path('complain/', views.complain_form, name='complain_form'),
+    path('complaints/', views.view_complaints, name='complaints'),
 ]
 

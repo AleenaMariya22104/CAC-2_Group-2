@@ -107,8 +107,9 @@
     <h2>Welcome, {{ user.first_name }}!</h2>
     <a href="#viewUsers" onclick="toggleNavbar(); toggleUserList()">View Users</a>
     <a href="{% url 'add_units' %}" onclick="toggleNavbar(); toggleAddUnit()">Add Billing Units</a>
-    <a href="#addDueCharges" onclick="toggleNavbar()">Add Due Charges</a>
-    <a href="#viewRequests" onclick="toggleNavbar()">View Requests</a>
+    <a href="{% url 'complaints' %}" onclick="toggleNavbar()">View Complaints</a>
+    <a href="{% url 'staffdashboard' %}" onclick="toggleNavbar()">Staff Dashboard</a>
+
 </div>
 
 <h2>All Users:</h2>

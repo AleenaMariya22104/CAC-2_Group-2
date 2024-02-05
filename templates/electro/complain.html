@@ -1,44 +1,35 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Application Form</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link rel="stylesheet" href="{% static 'css/complaincss.css' %}">
-  </head>
-  <body>
-    <div class="testbox">
-      <form action="/">
-        <div class="banner">
-          <h1>Complain Registration Form</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="testbox">
+    <form method="post" action="{% url 'complain_form' %}">
+      {% csrf_token %}
+      <div class="banner">
+        <h1>Complain Registration Form</h1>
+      </div>
+      <div class="item">
+        <h3>Name</h3>
+        <div class="name-item">
+          {{ form.name }}
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="item">
+          <h3>Email</h3>
+          {{ form.email }}
         </div>
         <div class="item">
-          <p>Name</p>
-          <div class="name-item">
-            <input type="text" name="name" placeholder="First name" />
-            <input type="text" name="name" placeholder="Last name" />
-          </div>
+          <h3>Phone</h3>
+          {{ form.phone }}
         </div>
-        <div class="contact-item">
-          <div class="item">
-            <p>Email</p>
-            <input type="text" name="name"/>
-          </div>
-          <div class="item">
-            <p>Phone</p>
-            <input type="text" name="name"/>
-          </div>
-          <div class="item">
-            <p>write your complain</p>
-            <textarea name="message" rows="10" cols="30"> 
-              </textarea>
-          </div>
+        <div class="item">
+          <h3>Write your complaint</h3>
+          {{ form.message }}
         </div>
-        <div class="btn-block">
-          <button type="submit" href="/">Submit</button>
-        </div>
-      </form>
-    </div>
-  </body>
-</html>
+      </div>
+      <div class="btn-block">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}

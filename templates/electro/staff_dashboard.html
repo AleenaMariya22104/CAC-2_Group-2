@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}STAFF DASHBOARD{% endblock %}
+{% block content %}
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .chart {
+            width: 35%;
+            text-align: center;}
+    </style>
+<div class="chart-container">
+        <div class="chart">
+            <img src="data:image/png;base64,{{ data.chart_date_joined }}" alt="Date Joined Graph">
+            <p>Line Graph: User Join Dates</p>
+        </div>
+    </div>
+{% endblock content %}

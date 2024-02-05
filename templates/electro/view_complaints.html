@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    .container-large {
+      max-width: 1200px; /* Set your desired max-width */
+      margin: 0 auto; /* Center the container */
+    }
+
+    .complaint-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px; /* Adjust the margin as needed */
+    }
+
+    .complaint-table th, .complaint-table td {
+      padding: 10px; /* Adjust the padding as needed */
+      border: 1px solid #ddd; /* Add border for better visibility */
+      text-align: left;
+    }
+
+    .complaint-table th {
+      background-color: #f2f2f2; /* Add a background color for the header */
+    }
+  </style>
+
+  <div class="container-large" style="padding-bottom: 800px;
+">
+    <h1>All Complaints</h1>
+    <table class="complaint-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for complaint in complaints %}
+          <tr>
+            <td>{{ complaint.name }}</td>
+            <td>{{ complaint.phone }}</td>
+            <td>{{ complaint.message }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
+
