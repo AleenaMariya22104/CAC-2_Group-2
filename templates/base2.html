@@ -4,28 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
     <title>{% block page_title %}
-
-{% endblock %}</title>
+        <!-- Add page title content here -->
+    {% endblock %}</title>
+    <!-- External CSS -->
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">
 </head>
 <body>
 
 <header>
+    <!-- Header Section -->
     <h1>Electricity Board Admin Panel</h1>
 </header>
 
 <nav>
+    <!-- Navigation Section -->
     <ul>
         <li><a href="{% url 'manage' %}">View Users</a></li>
         <li><a href="{% url 'admindashboard' %}">Admin Dashboard</a></li>
         <li><a href="{% url 'adduser' %}">Add new user</a></li>
     </ul>
 </nav>
-{% block content %}
 
+{% block content %}
+    <!-- Main Content Block -->
 {% endblock content %}
+
 <footer>
+    <!-- Footer Section -->
     <p class="backtext">&copy; Electro</p>
 </footer>
 </body>
