@@ -1,126 +1,119 @@
-/* Import Google Font */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300:400;500;600;700;800;900&display=swap");
 
-/* Global styles */
 * {
-    margin: 0; /* Reset margin */
-    padding: 0; /* Reset padding */
-    box-sizing: border-box; /* Use border-box model */
-    font-family: "Poppins", sans-serif; /* Set default font family */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Body styles */
 body {
-    display: flex; /* Use flexbox for layout */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    min-height: 100vh; /* Set minimum height to viewport height */
-    background: url('/static/images/login-2.jpg'); /* Set background image */
-    background-size: cover; /* Cover entire element with background */
-    background-position: center; /* Center the background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('/static/images/login-2.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
-/* Wrapper styles */
 .wrapper {
-    width: 420px; /* Set width */
-    background: transparent; /* Transparent background */
-    border: 2px solid rgba(255, 255, 255, .2); /* Set border */
-    backdrop-filter: blur(10px); /* Apply backdrop filter for blur effect */
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2); /* Add box shadow */
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #ffffff; /* Adjusted text color for better visibility */
-    border-radius: 10px; /* Add border radius */
-    padding: 30px 40px; /* Add padding */
+    border-radius: 10px;
+    padding: 30px 40px;
 }
 
-/* Heading 1 styles */
 .wrapper h1 {
-    font-size: 36px; /* Set font size */
-    text-align: center; /* Center-align text */
+    font-size: 36px;
+    text-align: center;
 }
 
-/* Input box styles */
 .wrapper .input-box {
-    position: relative; /* Set position to relative */
-    width: 100%; /* Set width */
-    height: 50px; /* Set height */
-    margin: 30px 0; /* Add margin */
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
 }
 
 .input-box input {
-    width: 100%; /* Set width */
-    height: 100%; /* Set height */
-    background: transparent; /* Transparent background */
-    border: solid; /* Set border */
-    outline: none; /* Remove outline */
-    border: 2px solid rgba(255, 255, 255, .2); /* Set border */
-    border-radius: 40px; /* Add border radius */
-    font-size: 16px; /* Set font size */
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: solid;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
     color: white; /* Adjusted text color for better visibility */
-    padding: 20px 45px 20px 20px; /* Add padding */
+    padding: 20px 45px 20px 20px;
 }
+
+
 
 .input-box input::placeholder {
     color: #0f0f0f; /* Adjusted placeholder color for better visibility */
 }
 
 .input-box i {
-    position: absolute; /* Set position to absolute */
-    right: 20px; /* Set right position */
-    top: 50%; /* Set top position */
-    transform: translateY(-50%); /* Center vertically */
-    font-size: 20px; /* Set font size */
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
 }
 
-/* Remember and forgot styles */
 .wrapper .remember-forgot {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space items evenly */
-    font-size: 14.5px; /* Set font size */
-    margin: -15px 0 15px; /* Add margin */
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
 }
 
 .remember-forgot label input {
-    accent-color: #ffffff; /* Set accent color */
-    margin-right: 3px; /* Add margin */
+    accent-color: #ffffff;
+    margin-right: 3px;
 }
 
 .remember-forgot a {
-    color: #ffffff; /* Set text color */
-    text-decoration: none; /* Remove underline */
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .remember-forgot {
-    text-decoration: underline; /* Add underline */
+    text-decoration: underline;
 }
 
-/* Button styles */
 .wrapper .btn {
-    width: 100%; /* Set width */
-    height: 45px; /* Set height */
-    background: rgba(255, 255, 255, 0.2); /* Set background color with transparency */
-    border: none; /* Remove border */
-    outline: none; /* Remove outline */
-    border-radius: 40px; /* Add border radius */
-    box-shadow: 0 0 10px rgb(255, 255, 255); /* Add box shadow */
-    cursor: mouse; /* Change cursor to pointer */
-    font-size: 16px; /* Set font size */
-    color: #ffffff; /* Set text color */
-    font-weight: 600; /* Set font weight */
+    width: 100%;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    cursor: mouse;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
 }
 
-/* Register link styles */
 .wrapper .register-link {
-    font-size: 14.5px; /* Set font size */
-    text-align: center; /* Center-align text */
-    margin-top: 20px; /* Add margin at the top */
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .register-link p a {
-    color: #ffffff; /* Set text color */
-    text-decoration: none; /* Remove underline */
-    font-weight: 600; /* Set font weight */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
 }
 
 .register-link p a:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline;
 }

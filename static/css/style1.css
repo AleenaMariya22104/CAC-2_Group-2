@@ -1,124 +1,223 @@
-/* Global styles */
 body {
-    margin: 0; /* Remove default margin */
-    font-family: 'Arial', sans-serif; /* Set font family */
+    margin: 0;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Header styles */
 header {
-    background-color: #000000; /* Set background color */
-    padding-top: 20px; /* Add padding at the top */
-    padding-bottom: 20px; /* Add padding at the bottom */
-    color: #fff; /* Set text color */
-    text-align: center; /* Center-align text */
+    background-color: #000000;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
 }
 
-/* Container styles */
 .container {
-    max-width: 1200px; /* Set maximum width */
-    margin: 0 auto; /* Center-align container */
-    padding: 0 20px; /* Add horizontal padding */
-    color: #ffffff; /* Set text color to white */
-    text-shadow: 2px 2px 4px #000000; /* Add text shadow */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #ffffff; /* Change the color to white */
+    text-shadow: 2px 2px 4px #000000
 }
 
-/* Heading 1 styles */
-.container h1 {
-    font-family: 'Times New Roman', serif; /* Set font family */
-    font-size: 51px; /* Set font size */
-    color: #1bcbe3; /* Set text color */
-    margin: 0; /* Remove default margin */
-    padding: 0px 0px 6px 0px; /* Add padding */
-    letter-spacing: -2px; /* Adjust letter spacing */
-    font-weight: bold; /* Set font weight to bold */
+.container h1{
+    font-family: 'Times New Roman', serif;
+    font-size: 51px;
+    color: #1bcbe3;
+    margin: 0;
+    padding: 0px 0px 6px 0px;
+    letter-spacing: -2px;
+    font-weight: bold;
 }
 
-/* Hero section heading styles */
-.hero h2 {
-    color: #ffffff; /* Set text color to white */
+.hero h2{
+    color: #ffffff;
 }
 
-/* Navigation styles */
+
 nav ul {
-    list-style: none; /* Remove default list style */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li {
-    display: inline-block; /* Display list items inline */
-    margin-right: 20px; /* Add margin between list items */
+    display: inline-block;
+    margin-right: 20px;
 }
 
 nav ul li a {
-    text-decoration: none; /* Remove underline from links */
-    color: #fff; /* Set link text color */
-    font-size: 16px; /* Set font size */
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
 }
 
-/* Hero section styles */
 .hero {
-    position: relative; /* Set position to relative */
-    text-align: center; /* Center-align text */
-    padding: 50px 0; /* Add padding */
-    color: #fff; /* Set text color to white */
+    position: relative;
+    text-align: center;
+    padding: 50px 0;
+    color: #fff;
 }
 
-/* Container heading, paragraph, and button styles */
+/* .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url('bg5.jpg');
+
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+} */
+
 .container h2,
 .container p,
 .container .cta-button {
-    position: relative; /* Set position to relative */
-    z-index: 1; /* Set z-index */
+    position: relative;
+    z-index: 1;
 }
 
-/* Features section styles */
 .features {
-    background-color: #f5f5f5; /* Set background color */
-    padding: 50px 0; /* Add padding */
+    background-color: #f5f5f5;
+    padding: 50px 0;
 }
 
 .features h2 {
-    text-align: center; /* Center-align text */
-    margin-bottom: 40px; /* Add margin at the bottom */
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .feature {
-    text-align: center; /* Center-align text */
-    margin-bottom: 40px; /* Add margin at the bottom */
+    text-align: center;
+    margin-bottom: 40px;
+
 }
 
-/* Footer styles */
+/* .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+} */
+
 footer {
-    background-color: #000000; /* Set background color */
-    color: #fff; /* Set text color */
-    text-align: center; /* Center-align text */
-    padding-top: 10px; /* Add padding at the top */
-    padding-bottom: 10px; /* Add padding at the bottom */
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
-/* Call to action button styles */
 .cta-button {
-    display: inline-block; /* Display as inline-block */
-    padding: 15px 30px; /* Add padding */
-    margin-top: 20px; /* Add margin at the top */
-    background-color:  #100f0f; /* Set background color */
-    color: #fff; /* Set text color */
-    text-decoration: none; /* Remove underline from links */
-    border-radius: 5px; /* Add border radius */
-    transition: background-color 0.3s ease-in-out; /* Add transition */
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color:  #100f0f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .cta-button:hover {
-    background-color: rgb(242, 141, 46); /* Change background color on hover */
+    background-color:rgb(242, 141, 46)
+}
+.contain {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+  }
+
+  .card {
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+
+  .card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+
+  .card p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #666;
+  }
+
+  .cores {
+    background-color: #0b5963;
+    padding: 20px;
+    border-radius: 5px;
+    /* Add a box shadow to create a 3D effect */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .cores h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    /* Use a gradient background for the heading */
+    background: linear-gradient(to right, #000000, #000000);
+    /* Add some padding and border radius to the heading */
+    padding: 10px;
+    border-radius: 10px;
+    /* Use a white text color and a text shadow */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .cores ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 18px;
+  }
+
+  .cores li {
+    margin-bottom: 10px;
+    /* Use a blue text color for the list items */
+    color: rgb(255, 255, 255);
+  }
+
+
+
+
+
+.containercircle{
+    background-color: #000000;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+    border-color: #333;
+    border: 10px;
 }
 
-/* Container circle styles */
-.containercircle {
-    background-color: #000000; /* Set background color */
-    height: 90px; /* Set height */
-    width: 90px; /* Set width */
-    border-radius: 50px; /* Add border radius to make it circular */
-    border-color: #333; /* Set border color */
-    border: 10px; /* Add border */
-}
+/* asdfghjkl */

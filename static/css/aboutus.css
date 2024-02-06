@@ -1,53 +1,43 @@
-/* Global styles for the body */
+
 body {
-    font-family: Arial, sans-serif; /* Set the font family for the entire document */
-    background-color: #f4f4f4; /* Set the background color */
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Arrange children elements vertically */
-    min-height: 100vh; /* Ensure the body covers at least the viewport height */
-    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin:0;
+}
+.bg{
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-/* Background styles */
-.bg {
-    background-repeat: no-repeat; /* Prevent background image from repeating */
-    background-size: cover; /* Cover the entire element with the background image */
-}
-
-/* Container styles */
 .container {
-    flex: 1; /* Allow the container to grow and fill available space */
-    max-width: 800px; /* Limit the maximum width of the container */
-    margin: auto; /* Center the container horizontally */
-    background-color: transparent; /* Set container background color */
-    padding: 20px; /* Add padding inside the container */
+    flex: 1;
+    max-width: 800px;
+    margin: auto;
+    background-color: transparent;
+    padding: 20px;
 
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a box shadow */
-}
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-/* Heading 1 styles */
 h1 {
-    color: #ffffff; /* Set text color */
-    font-weight: bolder; /* Set font weight to bold */
+    color: #ffffff;
+    font-weight: bolder;
 }
-
-/* Heading 2 styles */
 h2 {
-    color: #ffffff; /* Set text color */
+    color: #ffffff;
 }
-
-/* Paragraph styles */
 p {
-    line-height: 1.6; /* Set the line height */
-    color: #ffffff; /* Set text color */
-    font-weight: bolder; /* Set font weight to bold */
+    line-height: 1.6;
+    color: #ffffff;
+    font-weight: bolder;
 }
-
-/* Footer styles */
 footer {
-    background-color: #000000; /* Set background color */
-    text-align: center; /* Center-align text */
-    padding: 20px 0; /* Add padding top and bottom */
-    margin-top: auto; /* Push footer to the bottom of the page */
+    background-color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top:auto;
 }
